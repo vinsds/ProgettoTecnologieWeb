@@ -1,0 +1,27 @@
+<div class="fullscreen-img" style="background-image: url('<?= $this->baseUrl('/img/slider/006.jpg');?>')">
+</div>
+
+<section class="page">
+    <h2><?= $this->msg; ?></h2>
+    <h3><?= $this->subMsg;?></h3>
+    <? if($this->centri != null):?>
+    <? foreach($this->centri as $item): ?>
+        <div class="box-collapse">
+            <div class="faq-title">
+                <h4><?= $item['nome']; ?></h4>
+            </div>
+            <div class="faq-description txt-desc">
+                <p><span class="label">Indirizzo:</span><?= $item['indirizzo']; ?></p>
+                <p><span class="label">Telefono:</span><?= $item['telefono']; ?></p>
+                <p><span class="label">Mail:</span><a href="mailto:<?= $item['mail']; ?>"><?= $item['mail']; ?></a></p>
+                <br />
+                <p><span class="label descrizione">Di cosa ci occupiamo?</span><?= $item['descrizione']; ?></p>
+
+            </div>
+        </div>
+    <? endforeach; ?>
+        <? else: ?>
+        <h2>Non sono presenti centri assistenza del database</h2>
+    <? endif; ?>
+
+</section>

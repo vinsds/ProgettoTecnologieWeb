@@ -1,0 +1,12 @@
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+    <? if($this->correct!=null):?>
+        <h2 class="correct"><?= $this->correct; ?></h2>
+    <? endif?>
+    <?= $this->editComponente?>
+</div>
+
+<div id="form-msg">
+    <p class="correct-insert"></p>
+    <p class="wrong-insert"></p>
+</div>

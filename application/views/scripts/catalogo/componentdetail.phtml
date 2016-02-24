@@ -1,0 +1,97 @@
+    <? $role = Zend_Auth::getInstance()->getIdentity()->role; ?>
+    <div class="title-page">
+        <h2><?= $this->msg; ?></h2>
+        <p>Componente selezionato: <span><?= $this->componente[0]['nome']; ?></span></p>
+    </div>
+    <div class="tab">
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Immagine</div>
+        <div class="tab-element" style="width: 400px; float: left; height: 50px; text-align: center">Nome</div>
+<!--        <div class="tab-element" style="width: 200px; float: left; height: 50px; text-align: center">Descrizione</div>-->
+    </div>
+    <? if(count($this->componente)>0): ?>
+        <? foreach($this->componente as $item): ?>
+            <a href="#" class="tab noRound">
+                <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                    <?= $item['id_componente']; ?>
+                </div>
+                <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                    <img src="<?= $this->baseUrl(); ?>/import/<?= $item['img_path'];?>" height="30" class="marginTop10" />
+                </div>
+                <div class="tab-element" style="width: 400px; float: left; height: 50px; text-align: center">
+                    <?= $item['nome']; ?>
+                </div>
+<!--                <div class="tab-element " style="width: 200px; float: left; height: 50px; text-align: center">-->
+<!--                    --><?//= $item['desc_comp']; ?>
+<!--                </div>-->
+            </a>
+        <? endforeach; ?>
+    <? endif ;?>
+
+    <div class="row-label">
+        <p>Descrizione</p>
+        <p class="txt-black">
+            <?= $item['desc_comp']; ?>
+        </p>
+    </div>
+    <div class="row-label">
+        <p>Istruzioni</p>
+        <p class="txt-black">
+            <?= $item['istruzioni']; ?>
+        </p>
+    </div>
+    <div class="row-label">
+        <p>Note</p>
+        <p class="txt-black">
+            <?= $item['note']; ?>
+        </p>
+    </div>
+    <div class="row-label">
+        <p>Malfunzionamenti componente</p>
+    </div>
+    <div class="tab noMarginTop">
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Nome</div>
+        <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">Piu informazioni</div>
+    </div>
+    <? if(count($this->malfunzionamenti)>0): ?>
+        <? foreach ($this->malfunzionamenti as $k): ?>
+            <a href="#" class="tab noRound ajaxmalf componente" value="<?= $k['id_malfunzionamento']; ?>">
+                <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                    <?= $k['id_malfunzionamento']; ?>
+                </div>
+                <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                    <?= $k['nome']; ?>
+                </div>
+                <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">
+                    <i class="fa fa-info"></i>
+                </div>
+            </a>
+        <? endforeach; ?>
+    <? endif; ?>
+
+    <div id="modal-change-box">
+        <i class="fa fa-times"></i>
+        <div id="modal-change-box-content">
+            <? if($role=='tecnico'): ?>
+                <h2>Soluzioni disponibili</h2>
+            <? elseif($role=='staff' || $role=='admin'): ?>
+                <h2>Modifica associazione malfunzionamento-soluzione</h2>
+            <? endif ?>
+            <h3>Seleziona il nome della soluzione per accedere alla sua descrizione</h3>
+            <p>Malfunzionamento selezionato: <span>test</span></p>
+            <p>Descrizione malfunzionamento selezionato: <span class="desc-malf"></span></p>
+
+            <h2>Soluzioni</h2>
+            <div class="solutions-list no-selection">
+            </div>
+            <? if($role=='staff' || $role=='admin'): ?>
+                <p class="correct-insert"></p>
+                <p class="wrong-insert"></p>
+            <? endif ?>
+        </div>
+        <div id="modal-change-box-description">
+            <h2>Descrizione soluzione</h2>
+            <p></p>
+        </div>
+    </div>

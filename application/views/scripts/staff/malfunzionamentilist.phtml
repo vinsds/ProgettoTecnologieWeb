@@ -1,0 +1,409 @@
+<?
+    $role=Zend_Auth::getInstance() -> getIdentity()->role;
+?>
+
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+</div>
+<? if($role=='staff'): ?>
+    <div class="bar" style="position: relative; width: 800px; margin: auto; height: 50px; text-align: center; line-height: 35px">
+    <div class="control-bar" style="float: left; width: 200px; margin: auto">
+        <a href="#" class="addMalf">Aggiungi malfunzionamento</a>
+    </div>
+    <div class="control-bar" style="float: left; width: 400px; margin: auto">
+        <a href="<?= $this->url(array(
+            "controller" => "staff",
+            "action" 	=>  "assmalfsold",
+        ),
+            "default", true)?>">Associazione Malfunzionamento/Soluzione</a>
+    </div>
+        </div>
+<? endif; ?>
+
+
+<div class="tab">
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Nome</div>
+    <? if($role=='tecnico'): ?>
+    <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">Leggi soluzione</div>
+    <? elseif($role=='staff'): ?>
+        <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">Azione</div>
+    <? endif; ?>
+</div>
+
+<? foreach($this->malf as $item): ?>
+    <a href="#" class="tab noRound ajax" value="<?= $item['id_malfunzionamento']; ?>">
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+            <?= $item['id_malfunzionamento']; ?>
+        </div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+            <?= $item['nome']; ?>
+        </div>
+        <? if($role=='tecnico'): ?>
+        <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">
+            <i class="fa fa-search"></i> Soluzione
+        </div>
+        <? elseif($role=='staff'): ?>
+            <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">
+                <i class="fa fa-pencil-square-o"></i> Azioni
+            </div>
+        <? endif; ?>
+    </a>
+<? endforeach; ?>
+
+<div class="popup-bg insertMalf hidden">
+    <div class="popup">
+        <i class="fa fa-times ajax"></i>
+        <div class="panel-edit create">
+            <?= $this->create ?>
+        </div>
+        <div class="confirm-erase">
+
+        </div>
+    </div>
+</div>
+
+
+<div class="popup-bg ajax hidden">
+    <div class="popup">
+        <? if($role=='staff'): ?>
+        <div class="crud-bar">
+            <div class="crud-item edit">
+                <i class="fa fa-pencil"></i>
+                <p>Modifica</p>
+            </div>
+            <div class="crud-item erase">
+                <i class="fa fa-times"></i>
+                <p>Elimina</p>
+            </div>
+        </div>
+        <? endif; ?>
+        <i class="fa fa-times ajax"></i>
+        <div class="product-box">
+            <div class="product-component">
+                <p><span>Nome malfunzionamento:</span><span class="space name">test</span></p>
+                <p><span>Descrizione malfunzionamento:</span><span class="space desc">test</span></p>
+                <p><span>Soluzione: </span></p>
+            </div>
+            <div class="product-component solution-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+        <? if($role=='staff'): ?>
+        <div class="confirm-erase">
+        <p>Confermi l'eliminazione?</p>
+            <p><span class="yes">Si</span><span class="no">No</span></p>
+        </div>
+        <div class="panel-edit">
+        <?= $this->edit; ?>
+        </div>
+        <? endif; ?>
+
+    </div>
+</div>
+
+<script>
+
+//
+//    $(".control-bar .addMalf").unbind("click").click(function(e){
+//        $(".popup-bg.insertMalf").fadeIn("fast");
+//        $(".popup-bg.insertMalf .panel-edit").fadeIn("fast");
+////        var el=$(this);
+////        var id=el.attr("value");
+////        var url="<?////= $this->baseUrl('/staff/insert'); ?>////";
+////        e.preventDefault();
+////        ajaxinsert(id,url);
+//    });
+//
+//    $("a.ajax").unbind("click").click(function(e){
+//        var el=$(this);
+//        var id=el.attr("value");
+////        console.log(id);
+//        var url="<?//= $this->baseUrl('/staff/findsolution'); ?>//";
+//        e.preventDefault();
+//        ajaxdetails(id,url);
+//        editControlField();
+//    });
+//
+//    $("i.fa-times.ajax").click(function(){
+//        popupInit();
+//        confirmEraseReset();
+//    });
+//
+//    //Active su erase
+//    function initPopUpMalfunzionamento(){
+//
+//        $(".crud-item.erase").click(function(){
+//            $(this).find("p").addClass("active");
+//            $(this).find("i.fa-times").addClass("active");
+//            $(".confirm-erase").fadeIn("fast");
+//        });
+//
+//        $(".crud-item.edit").click(function(){
+//            if(editFlag){
+//                var id=$(".crud-item.edit").attr("value");
+//                var url="<?//= $this->baseUrl('/staff/findsolution'); ?>//";
+//                $(this).find("p").addClass("active");
+//                $(this).find("i.fa-pencil").addClass("active");
+//                $(".panel-edit").fadeIn("fast");
+//                ajaxdetails(id,url);
+//                setTimeout(function(){
+//                    editFlag=false;
+//                },200);
+//
+//            }else{
+//
+//                editReset();
+//                setTimeout(function(){
+//                    editFlag=true;
+//                },200);
+//            }
+//
+//        });
+//
+//        $(".confirm-erase span.no").click(function(){
+//            confirmEraseReset();
+//        });
+//
+//        $(".confirm-erase span.yes").click(function(){
+//            var id=$(".crud-item.erase").attr("value");
+//            var url="<?//= $this->baseUrl('/staff/deletemalfunzionamento'); ?>//";
+//            ajaxdeletemalfunzionamento(id,url);
+//        });
+//
+//
+//    }
+//
+//
+//    function editReset(){
+//        $(".crud-item.edit").find("p").removeClass("active");
+//        $(".crud-item.edit").find("i.fa-pencil").removeClass("active");
+//        $(".panel-edit").fadeOut("fast");
+//    }
+//
+//    function confirmEraseReset(){
+//        $(".confirm-erase").fadeOut("fast");
+//        $(".crud-item.erase p").removeClass("active");
+//        $(".crud-item.erase i.fa-times").removeClass("active");
+//    }
+
+//    initPopUpMalfunzionamento();
+
+
+//    $("form#createMalfunzionamento input[type=submit]").click(function(e){
+//        var url="<?//= $this->baseUrl('/staff/create'); ?>//";
+//        var nome_malfunzionamento=$("form#createMalfunzionamento #nome_malfunzionamento").val();
+//        var descrizione_malfunzionamento=$("form#createMalfunzionamento #descrizione_malfunzionamento").val();
+//        var nome_soluzione=$("form#createMalfunzionamento #nome_soluzione").val();
+//        var descrizione_soluzione=$("form#createMalfunzionamento #descrizione_soluzione").val();
+//        var data= new Array(nome_malfunzionamento,descrizione_malfunzionamento,nome_soluzione,descrizione_soluzione);
+//        e.preventDefault();
+//        ajaxinsert(url,data);
+////       console.log(data);
+//    });
+
+//    function initConfirm(){
+//        $(".confirm-erase span.yes.add").click(function(){
+//            console.log("YES");
+//            var id=$(this).attr("value");
+//            var url="<?//= $this->baseUrl('/staff/solutionlist'); ?>//";
+//            ajaxsolutionlist(id,url);
+//        });
+//
+//        $(".confirm-erase span.no.add").click(function(){
+//            console.log("NO");
+//            $(".popup-bg.insertMalf").fadeOut("fast");
+//        });
+//    }
+
+
+</script>
+
+<!---->
+<!--<style>-->
+<!---->
+<!--    .panel-edit{-->
+<!--        position: absolute;-->
+<!--        top:30px; left:0;-->
+<!--        width: 100%;-->
+<!--        height: 350px;-->
+<!--        background: white;-->
+<!--        display: none;-->
+<!--    }-->
+<!---->
+<!--    .panel-edit.create{-->
+<!--        width: 90%;-->
+<!--        position: relative;-->
+<!--        margin: auto;-->
+<!--    }-->
+<!---->
+<!--    .panel-edit form#editMalfunzionamento,-->
+<!--    .panel-edit form#createMalfunzionamento{-->
+<!--        width: 80%;-->
+<!--        margin: auto;-->
+<!--    }-->
+<!---->
+<!--    .panel-edit form#editMalfunzionamento input[type=text],-->
+<!--    .panel-edit form#createMalfunzionamento input[type=text]{-->
+<!--        width: 100%;-->
+<!--        height: 30px;-->
+<!--        margin-bottom: 15px;-->
+<!--        border:none;-->
+<!--        border-bottom: 1px solid #cccccc;-->
+<!--    }-->
+<!---->
+<!--    .panel-edit form#editMalfunzionamento label,-->
+<!--    .panel-edit form#createMalfunzionamento label{-->
+<!--        font-family: 'Open Sans Regular', sans-serif;-->
+<!--        font-size: 9pt;-->
+<!--        font-weight: bold;-->
+<!--        margin-bottom: 10px;-->
+<!--    }-->
+<!---->
+<!--    .panel-edit .button{-->
+<!--        width: 100%;-->
+<!--        margin: auto;-->
+<!--    }-->
+<!---->
+<!--    .panel-edit form#editMalfunzionamento input[type=submit],-->
+<!--    .panel-edit form#createMalfunzionamento input[type=submit]-->
+<!--    {-->
+<!--        width: 100%;-->
+<!--        height: 35px;-->
+<!--        border-radius: 3px;-->
+<!--        border:1px solid rgb(3,169,244);-->
+<!--        background: none;-->
+<!--        color: rgb(3,169,244);-->
+<!--        text-transform: uppercase;-->
+<!--        -webkit-transition: all 0.1s ease-in-out;-->
+<!--        -ms-transition: all 0.1s ease-in-out;-->
+<!--        -o-transition: all 0.1s ease-in-out;-->
+<!--        transition: all 0.1s ease-in-out;-->
+<!--    }-->
+<!---->
+<!--    .panel-edit form#editMalfunzionamento textarea,-->
+<!--    .panel-edit form#createMalfunzionamento textarea{-->
+<!--        width: 100%;-->
+<!--        height: 35px;-->
+<!--        border:none;-->
+<!--        border-bottom: 1px solid #cccccc;-->
+<!--        font-family: 'Open Sans Regular', sans-serif;-->
+<!--        resize: none;-->
+<!--        font-size: 9pt;-->
+<!--        margin-bottom: 5px;-->
+<!---->
+<!--    }-->
+<!---->
+<!--    .panel-edit form#editMalfunzionamento input[type=submit]:hover,-->
+<!--    .panel-edit form#createMalfunzionamento input[type=submit]:hover{-->
+<!--        background: rgb(3,169,244);-->
+<!--        color: white;-->
+<!--        -webkit-transition: all 0.1s ease-in-out;-->
+<!--        -ms-transition: all 0.1s ease-in-out;-->
+<!--        -o-transition: all 0.1s ease-in-out;-->
+<!--        transition: all 0.1s ease-in-out;-->
+<!--    }-->
+<!---->
+<!--    .confirm-erase{-->
+<!--        width: 100%;-->
+<!--        height: 100px;-->
+<!--        position: absolute;-->
+<!--        top:50%;-->
+<!--        display: none;-->
+<!--        padding-bottom: 20px;-->
+<!--        background: rgba(3,169,244,1);-->
+<!--    }-->
+<!---->
+<!--    .confirm-erase p{-->
+<!--        font-size: 12pt;-->
+<!--        color: white;-->
+<!--        font-weight: bold;-->
+<!--        line-height: 23px;-->
+<!--        text-align: center;-->
+<!--        text-transform: uppercase;-->
+<!--    }-->
+<!---->
+<!--    .confirm-erase span{-->
+<!--        display: block;-->
+<!--        width: 50%;-->
+<!--        color: white;-->
+<!--        cursor: pointer;-->
+<!--        float: left;-->
+<!--        font-size: 20pt;-->
+<!--    }-->
+<!--    .crud-bar{-->
+<!--        position: absolute;-->
+<!--        height: 100px;-->
+<!--        width: 100%;-->
+<!--        left: 0px;-->
+<!--        bottom: 0px;-->
+<!--        border-bottom-left-radius: 4px;-->
+<!--        border-bottom-right-radius: 4px;-->
+<!--    }-->
+<!---->
+<!--    .crud-item{-->
+<!--        float: left;-->
+<!--        width: 50%;-->
+<!--        height: 100px;-->
+<!--        cursor: pointer;-->
+<!--    }-->
+<!---->
+<!--    .crud-item .active{-->
+<!--        color: rgba(3,169,244,1)!important;-->
+<!---->
+<!--    }-->
+<!---->
+<!--    .crud-item p{-->
+<!--        text-align: center;-->
+<!--        display: block;-->
+<!--        width: 50%;-->
+<!--        position: absolute;-->
+<!--        bottom: 0;-->
+<!--        font-size: 9pt;-->
+<!--        font-family: 'Open Sans Regular', sans-serif;-->
+<!--        font-weight: bold;-->
+<!--        text-transform: uppercase;-->
+<!--        -webkit-transition: all 0.1s ease-in-out;-->
+<!--        -ms-transition: all 0.1s ease-in-out;-->
+<!--        -o-transition: all 0.1s ease-in-out;-->
+<!--        transition: all 0.1s ease-in-out;-->
+<!--    }-->
+<!---->
+<!--    .crud-item i.fa{-->
+<!--        text-align: center;-->
+<!--        width: 50%;-->
+<!--        position: absolute;-->
+<!--        font-size: 35pt;-->
+<!--        color: black;-->
+<!--        top:15px;-->
+<!--        display: block;-->
+<!--        -webkit-transition: all 0.1s ease-in-out;-->
+<!--        -ms-transition: all 0.1s ease-in-out;-->
+<!--        -o-transition: all 0.1s ease-in-out;-->
+<!--        transition: all 0.1s ease-in-out;-->
+<!--    }-->
+<!---->
+<!--    .crud-item i.fa-times{-->
+<!--        left: 246px;-->
+<!--        -webkit-transition: all 0.1s ease-in-out;-->
+<!--        -ms-transition: all 0.1s ease-in-out;-->
+<!--        -o-transition: all 0.1s ease-in-out;-->
+<!--        transition: all 0.1s ease-in-out;-->
+<!--    }-->
+<!---->
+<!--    .crud-item:hover{-->
+<!--        color: rgba(3,169,244,1);-->
+<!--        -webkit-transition: all 0.1s ease-in-out;-->
+<!--        -ms-transition: all 0.1s ease-in-out;-->
+<!--        -o-transition: all 0.1s ease-in-out;-->
+<!--        transition: all 0.1s ease-in-out;-->
+<!--    }-->
+<!---->
+<!--    .crud-item:hover > i.fa{-->
+<!--        color: rgba(3,169,244,1);-->
+<!--        -webkit-transition: all 0.1s ease-in-out;-->
+<!--        -ms-transition: all 0.1s ease-in-out;-->
+<!--        -o-transition: all 0.1s ease-in-out;-->
+<!--        transition: all 0.1s ease-in-out;-->
+<!--    }-->
+<!--</style>-->

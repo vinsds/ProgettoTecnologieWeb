@@ -1,0 +1,36 @@
+<div class="title-page">
+    <h2>Gestione categorie e sottocategorie</h2>
+</div>
+<div id="admin-prod-comp">
+
+    <div class="title-page">
+        <h2><?= $this->msg_categorie; ?></h2>
+
+        <div class="col">
+            <a href="<?php echo $this->url(array(
+                'controller' => 'categoria',
+                'action' => 'addcategoria',
+            ),
+                'default', true); ?>" class="">Nuova categoria</a>
+
+            <a href="<?php echo $this->url(array(
+                'controller' => 'categoria',
+                'action' => 'categorialist',
+            ),
+                'default', true); ?>" class="">Elenco categoria</a>
+        </div>
+        <div class="col">
+            <a href="<?php echo $this->url(array(
+                'controller' => 'categoria',
+                'action' => 'addsottocategoria',
+            ),
+                'default', true); ?>" class="">Nuova sottocategoria</a>
+            <a href="<?php echo $this->url(array(
+                'controller' => 'categoria',
+                'action' => 'subcategorialist',
+            ),
+                'default', true); ?>" class="">Elenco sottocategoria</a>
+        </div>
+    </div>
+
+</div>

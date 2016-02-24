@@ -1,0 +1,69 @@
+<? $role=Zend_Auth::getInstance() -> getIdentity()->role; ?>
+<? if($role=='tecnico') {$label="Leggi soluzione"; $action="<i class='fa fa-search'></i> Soluzione";} ?>
+<? if($role=='staff' || $role=='admin') {$label="Azione"; $action="<i class='fa fa-cogs'></i> Modifica";} ?>
+
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+    <? if($this->empty!=null):?>
+        <h2><?= $this->empty; ?></h2>
+    <?endif?>
+</div>
+
+<? if($this->componenti!=null): ?>
+<? if($role=='staff' || $role=='admin'): ?>
+    <div class="tab topRow">
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Immagine</div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Nome</div>
+        <div class="tab-element " style="width: 200px; float: left; height: 50px; text-align: center">Azione</div>
+    </div>
+    <? foreach($this->componenti as $item): ?>
+        <a href="#" class="tab noRound associazione componente" value="<?= $item['id_componente']; ?>">
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['id_componente']; ?>
+            </div>
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <img src="<?= $this->baseUrl()?>/import/<?= $item['img_path'];?>" height="30" class="marginTop10" />
+            </div>
+            <div class="tab-element rightBorder nome" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['nome']; ?>
+            </div>
+            <div class="tab-element " style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['desc_comp']; ?>
+            </div>
+        </a>
+    <? endforeach; ?>
+<? endif; ?>
+<? endif; ?>
+<? if($role=='admin' || $role =='staff'): ?>
+    <div id="modal-box">
+        <div id="modal-alert" class="delete">
+
+        </div>
+    </div>
+<? endif ?>
+
+
+<div id="modal-change-box">
+    <i class="fa fa-times"></i>
+    <div id="modal-change-box-content">
+        <? if($role=='tecnico'): ?>
+            <h2>Malfunzionamenti disponibili</h2>
+        <? elseif($role=='staff' || $role=='admin'): ?>
+            <h2>Modifica associazione malfunzionamento-componente</h2>
+        <? endif ?>
+        <p>Componente selezionata: <span>test</span></p>
+        <h2>Malfunzionamenti</h2>
+        <h3>Fare click sul malfunzionamento desiderato per associarlo al componente</h3>
+        <div class="solutions-list">
+        </div>
+        <? if($role=='staff' || $role=='admin'): ?>
+            <p class="correct-insert"></p>
+            <p class="wrong-insert"></p>
+        <? endif ?>
+    </div>
+    <div id="modal-change-box-description">
+        <h2>Descrizione malfunzionamento</h2>
+        <p></p>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="title-page">
+    <h2><?= $this->title; ?></h2>
+    <? if ($this->msg != null): ?>
+        <div class="title-page">
+            <h2 class="correct"><?= $this->msg ?></h2><br/>
+        </div>
+    <? endif ?>
+    <? if ($this->error != null): ?>
+        <div class="title-page">
+            <h2 class="error"><?= $this->error ?></h2><br/>
+        </div>
+    <? endif ?>
+    <?= $this->insert?>
+</div>
+
+<div id="form-msg">
+    <p class="correct-insert"></p>
+    <p class="wrong-insert"></p>
+</div>

@@ -1,0 +1,70 @@
+<ul id="topMenu">
+    <li>
+        <a href="<?= $this->url(array(
+            'controller' => 'public',
+            'action' 	=>  'index',
+        ),
+            'default', true); ?>">
+            Home
+        </a>
+    </li>
+    <li>
+        <a href="<?= $this->url(array(
+            'controller' => 'public',
+            'action' 	=>  'chisiamo',
+        ),
+            'default', true); ?>">
+            Chi siamo
+        </a>
+    </li>
+    <li>
+        <a href="<?= $this->url(array(
+            'controller' => 'public',
+            'action' 	=>  'servizi',
+        ),
+            'default', true); ?>">
+            Servizi
+        </a>
+    </li>
+    <li>
+        <a href="<?= $this->url(array(
+            'controller' => 'public',
+            'action' 	=>  'prodotti',
+        ),
+            'default', true); ?>">
+            Prodotti
+        </a>
+    </li>
+    <li>
+        <a href="<?= $this->url(array(
+            'controller' => 'public',
+            'action' 	=>  'faq',
+        ),
+            'default', true); ?>">
+            F.A.Q
+        </a>
+    </li>
+    <li>
+        <a href="<?= $this->url(array(
+            'controller' => 'public',
+            'action' 	=>  'centri',
+        ),
+            'default', true); ?>">
+            I nostri centri
+        </a>
+    </li>
+    <li>
+        <a href="<?= $this->url(array(
+            'controller' => 'login',
+            'action' 	=>  'index',
+        ),
+            'default', true); ?>">
+            <? if(Zend_Auth::getInstance()->hasIdentity()): ?>
+                <i class="fa fa-tasks"></i> <?= Zend_Auth::getInstance()->getIdentity()->role; ?>
+                <? else: ?>
+                Login
+            <? endif; ?>
+        </a>
+    </li>
+</ul>
+

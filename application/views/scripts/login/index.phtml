@@ -1,0 +1,32 @@
+<section class="page loginPage">
+    <h2>Area Riservata</h2>
+    <? if($this->msg==null): ?>
+            <h3>Inserisci le credeziali di accesso</h3>
+        <? else: ?>
+            <h3 class="error"><?= $this->msg; ?></h3>
+    <? endif ; ?>
+    <?php echo $this->loginForm; ?>
+</section>
+
+
+<script>
+//    $("form#login input[type=submit]").click(function(e){
+//        e.preventDefault();
+//        user=$("form#login input[name=user]").val();
+//        password=$("form#login input[name=password]").val();
+//        call(user,password);
+//    });
+//
+//    function call(user,password) {
+//        $.ajax({
+//            type: 'POST',
+//            url: '<?//= $this->baseUrl('/login/access') ?>//',
+//            data: { "user": user, "password": password },
+//            dataType:'JSON',
+//            success: function(data){
+//
+//                window.location.href = data.hasOwnProperty('redirect') ? data.redirect : window.location.href;
+//            }
+//        });
+//    }
+</script>

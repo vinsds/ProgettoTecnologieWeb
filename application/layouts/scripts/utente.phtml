@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <?= $this->headScript(); ?>
+    <?= $this->headLink(); ?>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<div class="topBarLogin">
+    <div class="user">
+        <i class="fa fa-user"></i>
+        <p><?= Zend_Auth::getInstance() -> getIdentity()->user; ?></p>
+        <div class="user-sub hidden">
+            <div class="user-sub-item"><i class="fa fa-sign-out"></i>
+                <a href="<?= $this->url(array('controller'=>'login','action'=>'logout'),"default", true) ?>">Logout</a></div>
+        </div>
+    </div>
+    <div class="home">
+        <a href="<?= $this->url(array('controller'=>'public','action'=>'index'),"default", true); ?>"><i class="fa fa-home"></i></a>
+    </div>
+    <div class="search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div class="menu">
+        <i class="fa fa-bars"></i>
+    </div>
+
+</div>
+<div class="settings">
+    <a href="<?= $this->url(array('controller'=>'profilo','action'=>'edit'),"default", true); ?>"><i class="fa fa-cogs"></i></a>
+</div>
+<div class="items" style="margin-top:50px; padding-bottom:150px;position: relative; width:100%;">
+    <?= $this->layout()->content; ?>
+</div>
+<div class="popup-bg menu-item hidden">
+    <? $role=Zend_Auth::getInstance() -> getIdentity()->role; ?>
+<!--    --><?// Zend_Auth::getInstance() -> getIdentity()->user; ?>
+    <? if($role=='tecnico'): ?>
+        <?= $this->render("_menulivellouno.phtml"); ?>
+    <? elseif($role=='staff'): ?>
+        <?= $this->render("_menulivellodue.phtml"); ?>
+    <? endif ?>
+    <? if($role=='admin'): ?>
+        <?= $this->render("_menulivellotre.phtml"); ?>
+    <? endif ?>
+
+</div>
+
+<div class="popup-bg find hidden">
+    <h2>Ricerca</h2>
+        <?php echo $this->search; ?>
+    <i class="fa fa-times"></i>
+</div>
+
+</body>
+
+</html>
+
+
+<script>
+
+    //Definisco delle variabili globali utili per le chiamate ajax o altre operazioni
+
+    //Messaggi
+    var noElements="Non sono presenti elementi";
+    var modalLabel=["Modello","Descrizione","istruzioni d'uso"];
+    var filtraCategoria="Filtra per sottocategoria";
+    var errorResearch=[
+        "Impossibile effettuare la ricerca.<br/>Carattere * non ammesso all'inizio della parola",
+        "Impossibile effettuare la ricerca.<br/>Carattere * non ammesso in mezzo alla parola","Non ci sono prodotti per la parola ricercata"];
+
+    const roleType=["tecnico","staff","admin"];
+    /**
+     *
+     * @type {string} contiene il ruolo dell'utente loggato
+     */
+    const role="<?= Zend_Auth::getInstance()->getIdentity()->role; ?>";
+
+
+    /**
+     *
+     * @type {string} contiene il baseUrl generato da Zend
+     */
+    const baseUrl="<?= $this->baseUrl(); ?>";
+
+    /**
+     *
+     * @type {string} contiene il baseUrl per le immagini
+     */
+    const baseWindowLoad="<?= $this->baseUrl('/catalogo/malfunzionamentilist'); ?>";
+
+    /**
+     *
+     * @type {string} contiene il baseUrl per le immagini
+     */
+    const baseUrlImg="/public/import/";
+
+    /**
+     * @type {int} contiene l'id per le chiamate ajax
+     */
+    var id_ajax;
+
+    /**
+     * @type {string} contiene l'action da assegnare alla chiamata ajax
+     */
+    var action_ajax;
+    /**
+     * @type {string} contiene la parola di ricerca per le chiamate ajax
+     */
+    var txt_word_search_ajax;
+
+    /**
+     * @type {string} contiene la definizione della finestra modal
+     */
+    var modal_ajax='<div id="modal-content">' +
+        '<div id="modal-bar">' +
+        '<i class="fa fa-times"></i>' +
+        '</div>' +
+        '<div style=""></div>' +
+        '<div class="row">' +
+        '<div class="modal-img" style=""></div>' +
+        '<div class="modal-content-txt">' +
+        '<p class="label">'+modalLabel[0]+'</p>' +
+        '<p class="field modello"></p>' +
+        '<p class="label">'+modalLabel[1]+'</p>' +
+        '<p class="field descrizione"></p>' +
+        '</div>' +
+        '</div>' +
+        '<div class="row">' +
+        '<p class="label istruzioni">'+modalLabel[2]+'</p>' +
+        '<p class="istruzioni-full"></p></div></div>';
+
+    var alert_ajax='<div id="modal-alert"></div>';
+
+</script>
+

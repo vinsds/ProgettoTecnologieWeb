@@ -1,0 +1,14 @@
+
+<div class="col left fixed malfunzionamenti">
+    <? foreach($this->list as $item): ?>
+    <div class="item" value="<?= $item['id_malfunzionamento'];?>"><?= $item['nome']?></div>
+    <? endforeach; ?>
+</div>
+
+<div class="col left300 fixed soluzioni hidden">
+</div>
+
+<div class="col left600 fixed soluzione-descrizione hidden">
+    <h3>Descrizione soluzione</h3>
+    <p></p>
+</div>

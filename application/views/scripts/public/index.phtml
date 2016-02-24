@@ -1,0 +1,36 @@
+<div class="fullscreen-img" style="background-image: url('<?= $this->baseUrl('/img/slider/001.jpg');?>')">
+</div>
+
+<section class="homePage bg-section">
+    <div class="opacity"></div>
+    <h2>I nostri servizi</h2>
+    <p><span>Vi offriamo una persona di fiducia su cui contare</span><br />un esperto sempre aggiornato, una persona motivata e innamorata del proprio lavoro,<br />un risparmio sui costi informatici e un miglioramento della vostra azienda.
+    </p>
+    <a href="<?php echo $this->url(array(
+        'controller' => 'public',
+        'action' 	=>  'servizi',
+    ),
+        'default', true);?>" class=""><button>Scopri di più</button></a>
+</section>
+<section class="homePage bg-section">
+    <div class="opacity"></div>
+    <h2>I nostri prodotti</h2>
+    <p>Dopo tanto tempo passato a "curare" i computers dei nostri clienti abbiamo deciso di intraprendere questo nuovo modo i fare assistenza:<br />
+        <b>RAGGIUNGERE IL CLIENTE DIRETTAMENTE A DOMICILIO</b> senza aggiungere costi di chiamata o di uscita.
+    </p>
+    <a href="<?php echo $this->url(array(
+        'controller' => 'public',
+        'action' 	=>  'prodotti',
+    ),
+        'default', true);?>" class=""><button>Catalogo prodotti</button></a>
+</section>
+<section class="homePage bg-section">
+    <div class="opacity"></div>
+    <h2>Problemi?</h2>
+    <p>Se hai problemi con un nostro prodotto, consulta la nostra sezione F.A.Q</p>
+    <a href="<?php echo $this->url(array(
+        'controller' => 'public',
+        'action' 	=>  'faq',
+    ),
+        'default', true);?>" class=""><button>F.A.Q</button></a>
+</section>

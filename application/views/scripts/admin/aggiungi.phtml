@@ -1,0 +1,12 @@
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+</div>
+
+<div id="form-add-user" class="<? if($this->class!=null) echo $this->class; ?>">
+    <?= $this->createUser; ?>
+</div>
+
+<div id="form-msg">
+    <p class="correct-insert"></p>
+    <p class="wrong-insert"></p>
+</div>

@@ -1,0 +1,17 @@
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+</div>
+
+<div id="ass-content">
+
+    <a href="<?php echo $this->url(array(
+        'controller' => 'centro',
+        'action' 	=>  'aggiungi',
+    ),
+        'default', true);?>">Aggiungi Centro Assistenza</a>
+    <a href="<?php echo $this->url(array(
+        'controller' => 'centro',
+        'action' 	=>  'centrilist',
+    ),
+        'default', true);?>">Modifica - Elimina Centro Assistenza</a>
+</div>

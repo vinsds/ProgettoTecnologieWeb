@@ -1,0 +1,123 @@
+
+<div class="col left fixed malfunzionamenti">
+    <? foreach($this->list as $item): ?>
+    <div class="item" value="<?= $item['id_malfunzionamento'];?>"><?= $item['nome']?></div>
+    <? endforeach; ?>
+</div>
+
+<div class="col left300 fixed soluzioni hidden">
+</div>
+
+<div class="col left600 fixed soluzione-descrizione hidden">
+    <h3>Descrizione soluzione</h3>
+    <p></p>
+</div>
+<!--<div style="position: relative; width: 90%">-->
+<!--    <div style="position: relative; width: 60%; margin: auto; line-height: 35px; border:solid 1px #cccccc">-->
+<!--        <input type="radio" value="--><?//= $item['id_malfunzionamento'];?><!--" name="malfunzionamenti" />--><?//= $item['nome']?><!--<br/>-->
+<!--    </div>-->
+<!---->
+<!--    <div style="position: absolute; right:0; top:0; width: 20%" >-->
+<!--        <p>Soluzioni</p>-->
+<!--        <div class="listSoluzion">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+<!--<script>
+
+    var malf;
+
+    $("input[type=radio]").click(function(){
+        var id=$(this).attr("value");
+        var url="<?= $this->baseUrl("/malfunzionamenti/associazione");?>";
+        $(".listSoluzion").fadeOut("fast");
+        malf=id;
+        ajaxassociazione(id,url);
+    });
+
+    function initA(){
+        $("input[type=checkbox]").click(function(){
+            var idMalfunzionamento,idSoluzione;
+            var urlAdd="<?= $this->baseUrl("/malfunzionamenti/ajaxaddsoluzionetomalf");?>";
+            var urlDelete="<?= $this->baseUrl("/malfunzionamenti/ajaxremovesoluzionetomalf");?>";
+            var status=$(this).is(':checked');
+            idMalfunzionamento=malf;
+            idSoluzione=$(this).attr("value");
+            if(status){
+                if (confirm('Sicuro di voler aggiungere la soluzione selezionata?')) {
+                    ajaxAddSoluzioneToMalf(idSoluzione, idMalfunzionamento, urlAdd);
+                }
+            }else{
+                if (confirm('Sicuro di voler eliminare la soluzione selezionata?')) {
+                    ajaxRemoveSoluzioneToMalf(idSoluzione, idMalfunzionamento, urlDelete);
+                }
+
+            }
+        });
+    }
+
+
+
+    function ajaxassociazione(id,url){
+            $.ajax({
+                type: "POST",
+                url: url,
+                data:{"id":id},
+                dataType: "JSON",
+                success: function(data) {
+                    $(".listSoluzion").html("");
+                    setTimeout(function(){
+
+                    $(".listSoluzion").fadeIn("fast");
+                    var i;
+                      for(i=0; i<data.length; i++){
+                          if(data[i]['status']==true){
+                              $(".listSoluzion").append("<input type='checkbox' checked='checked' value="+data[i]['soluzione']['id_soluzione']+" />"+data[i]['soluzione']['nome']+"<br />");
+                          }else{
+                              $(".listSoluzion").append("<input type='checkbox' value="+data[i]['soluzione']['id_soluzione']+" />"+data[i]['soluzione']['nome']+"<br />");
+                          }
+                      }
+                        initA();
+                    },100);
+
+
+
+                },
+                error: function() {
+                    alert("Inserire un pop up di errore");
+                }
+            });
+    }
+
+
+    function ajaxAddSoluzioneToMalf(idSoluzione, idMalfunzionamento, url){
+        $.ajax({
+            type: "POST",
+            url: url,
+            data:{"idSoluzione":idSoluzione, "idMalfunzionamento":idMalfunzionamento},
+            dataType: "JSON",
+            success: function(data) {
+            },
+            error: function() {
+                alert("Inserire un pop up di errore");
+            }
+        });
+    }
+
+    function ajaxRemoveSoluzioneToMalf(idSoluzione, idMalfunzionamento, url){
+        $.ajax({
+            type: "POST",
+            url: url,
+            data:{"idSoluzione":idSoluzione, "idMalfunzionamento":idMalfunzionamento},
+            dataType: "JSON",
+            success: function(data) {
+            },
+            error: function() {
+                alert("Inserire un pop up di errore");
+            }
+        });
+    }
+</script>-->

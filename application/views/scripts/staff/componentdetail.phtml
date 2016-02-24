@@ -1,0 +1,70 @@
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+    <p>Componente selezionato: <span><?= $this->componente[0]['nome']; ?></span></p>
+</div>
+<div class="tab">
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Immagine</div>
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Nome</div>
+    <div class="tab-element" style="width: 200px; float: left; height: 50px; text-align: center">Descrizione</div>
+</div>
+<? if(count($this->componente)>0): ?>
+    <? foreach($this->componente as $item): ?>
+        <a href="#" class="tab noRound">
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['id_componente']; ?>
+            </div>
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <img src="/public/import/<?= $item['img_path'];?>" height="30" class="marginTop10" />
+            </div>
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['nome']; ?>
+            </div>
+            <div class="tab-element " style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['desc_comp']; ?>
+            </div>
+        </a>
+    <? endforeach; ?>
+<? endif ;?>
+
+<div class="row-label">
+    <p>Malfunzionamenti componente</p>
+</div>
+<div class="tab noMarginTop">
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Nome</div>
+    <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">Piu informazioni</div>
+</div>
+<? if(count($this->malfunzionamenti)>0): ?>
+    <? foreach ($this->malfunzionamenti as $k): ?>
+        <a href="#" class="tab noRound ajaxmalf componente" value="<?= $k['id_malfunzionamento']; ?>">
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $k['id_malfunzionamento']; ?>
+            </div>
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $k['nome']; ?>
+            </div>
+            <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">
+                <i class="fa fa-info"></i>
+            </div>
+        </a>
+    <? endforeach; ?>
+<? endif; ?>
+
+<div id="modal-box">
+    <div id="modal-content">
+        <div id="modal-bar">
+            <i class="fa fa-times"></i>
+        </div>
+        <div class="row">
+            <div class="modal-content-txt malfunzionamento">
+                <p><span>Nome malfunzionamento:</span><span class="space name">test</span></p>
+                <p><span>Descrizione malfunzionamento:</span><span class="space desc">test</span></p>
+                <p><span>Soluzione: </span></p>
+                <div class="solution-text">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

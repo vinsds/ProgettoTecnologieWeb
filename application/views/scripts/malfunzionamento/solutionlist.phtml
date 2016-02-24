@@ -1,0 +1,58 @@
+<? $role=Zend_Auth::getInstance() -> getIdentity()->role; ?>
+<? if($role=='tecnico') {$label="Leggi soluzione"; $action="<i class='fa fa-search'></i> Soluzione";} ?>
+<? if($role=='staff' || $role=='admin') {$label="Azione"; $action="<i class='fa fa-cogs'></i> Modifica";} ?>
+
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+    <? if($this->empty!=null):?>
+    <h2><?= $this->empty; ?></h2>
+    <? endif; ?>
+    </div>
+
+<? if(count($this->solutions) > 0): ?>
+<div class="tab">
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+    <div class="tab-element rightBorder" style="width: 400px; float: left; height: 50px; text-align: center">Nome</div>
+    <div class="tab-element " style="width: 200px; float: left; height: 50px; text-align: center"><?= $label; ?></div>
+</div>
+
+    <? foreach($this->solutions as $item): ?>
+        <a href="#" class="tab noRound ajaxmalf" value="<?= $item['id_soluzione']; ?>">
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['id_soluzione']; ?>
+            </div>
+            <div class="tab-element rightBorder" style="width: 400px; float: left; height: 50px; text-align: center">
+                <?= $item['nome']; ?>
+            </div>
+            <div class="tab-element " style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $action; ?>
+            </div>
+        </a>
+    <? endforeach; ?>
+<? endif; ?>
+<!--VISUALIZZA LA FINESTRA DI ALERT PER L'ELIMINAZIONE DEL MALFUNZIONAMENTO-->
+<? if($role=='admin' || $role =='staff'): ?>
+    <div class="bottom-bar-fixed-bottom">
+        <div class="bottom-bar">
+            <a href="<?= $this->baseUrl('/malfunzionamento/creates');?>" class="btn add-malf">
+                <i class="fa fa-plus"></i>
+                <p>Aggiungi<br/>Soluzione</p>
+            </a>
+            <a href="<?= $this->baseUrl('/malfunzionamento/edits');?>" class="btn edit-sol">
+                <i class="fa fa-cogs"></i>
+                <p>Modifica<br/>Soluzione</p>
+            </a>
+            <div class="btn remove-sol">
+                <i class="fa fa-trash"></i>
+                <p>Rimuovi<br/>Soluzione</p>
+            </div>
+        </div>
+    </div>
+<? endif; ?>
+
+<? if($role=='admin' || $role =='staff'): ?>
+    <div id="modal-box">
+        <div id="modal-alert" class="delete">
+        </div>
+    </div>
+<? endif ?>

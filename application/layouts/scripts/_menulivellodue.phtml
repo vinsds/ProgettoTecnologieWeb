@@ -1,0 +1,26 @@
+<div class="menu-box">
+    <ul class="list">
+        <li class="item"><a href="<?php echo $this->url(array(
+                'controller' => 'catalogo',
+                'action' 	=>  'productlist',
+            ),
+                'default', true);?>" class=""><i class="fa fa-list"></i>Catalogo prodotti</a></li>
+        <li class="item"><a href="<?php echo $this->url(array(
+                'controller' => 'catalogo',
+                'action' 	=>  'malfunzionamentilist',
+            ),
+                'default', true);?>" class=""><i class="fa fa-plug"></i>Gestione malfunzionamenti</a></li>
+
+        <li class="item"><a href="<?php echo $this->url(array(
+                'controller' => 'malfunzionamento',
+                'action' 	=>  'solutionlist',
+            ),
+                'default', true);?>" class=""><i class="fa fa-exchange"></i>Gestione Soluzioni</a></li>
+
+        <li class="item"><a href="<?php echo $this->url(array(
+                'controller' => 'malfunzionamento',
+                'action' 	=>  'scegli',
+            ),
+                'default', true);?>" class=""><i class="fa fa-exchange"></i>Prodotto - Componenti</a></li>
+    </ul>
+</div>

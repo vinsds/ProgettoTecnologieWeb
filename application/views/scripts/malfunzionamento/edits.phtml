@@ -1,0 +1,18 @@
+<!--FINESTRA ALERT-->
+<div id="modal-box" class="whiteBg">
+    <div id="modal-alert" class="crud">
+        <? if ($this->msg != null): ?>
+            <div class="title-page">
+                <h3 class="correct"><?= $this->msg ?></h3><br/>
+            </div>
+        <? endif ?>
+        <? if ($this->error != null): ?>
+            <div class="title-page">
+                <h3 class="error"><?= $this->error ?></h3><br/>
+            </div>
+        <? endif ?>
+        <h2>Modifica soluzione</h2>
+        <?= $this->editFormS; ?>
+        <h3 class="msg"></h3>
+    </div>
+</div>

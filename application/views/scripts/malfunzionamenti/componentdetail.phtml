@@ -1,0 +1,106 @@
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+    <p>Componente selezionata: <span><?= $this->componente[0]['nome']; ?></span></p>
+</div>
+<div class="tab">
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Immagine</div>
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Nome</div>
+    <div class="tab-element" style="width: 200px; float: left; height: 50px; text-align: center">Descrizione</div>
+</div>
+
+<? foreach($this->componente as $item): ?>
+
+    <a href="#" class="tab noRound">
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+            <?= $item['id_componente']; ?>
+        </div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+            <img src="/public/import/<?= $item['img_path'];?>" height="30" class="marginTop10" />
+        </div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+            <?= $item['nome']; ?>
+        </div>
+        <div class="tab-element " style="width: 200px; float: left; height: 50px; text-align: center">
+            <?= $item['desc_comp']; ?>
+        </div>
+    </a>
+    <div class="row-label">
+        <p>Istruzioni</p>
+    </div>
+    <div class="row-label whiteBg">
+        <p><?= $item['desc_comp']; ?></p>
+    </div>
+<? endforeach; ?>
+
+    <div class="row-label">
+        <p>Malfunzionamenti</p>
+    </div>
+
+<ul class="component-list">
+    <? foreach($this->malfunzionamenti as $el): ?>
+        <li class="component-list-item"><a href="#" class="ajaxmalf" value="<?= $el['id_malfunzionamento']; ?>"><?= $el['nome']; ?></a></li>
+    <? endforeach; ?>
+
+<?// foreach($this->componente as $item): ?>
+<!---->
+<!--<div class="product-detail">-->
+<!--    <div class="product-detail-top">-->
+<!--        <div class="product-detail-img"><img src="/public/import/--><?//= $item['img_path'] ?><!--"/></div>-->
+<!--        <div class="product-label"><p>Nome:<br /><span>--><?//= $item['nome']?><!--</span></p></div>-->
+<!--        <div class="product-label"><p>Descrizione:<br /><span>--><?//= $item['desc_comp']?><!--</span></p></div>-->
+<!--        <div class="product-label"><p>Istruzioni:<br /><span>--><?//= $item['istruzioni']?><!--</span></p></div>-->
+<!---->
+<!--    </div>-->
+<!--    <div class="product-detail-left" style="position: absolute; left: 250px; width: 250px; top:0;">-->
+<!--        <div class="product-component">-->
+<!--            <h2>Malfunzionamenti</h2>-->
+<!--            --><?// if($this->malfunzionamenti!=null): ?>
+<!--                <ul class="component-list">-->
+<!--                    --><?// foreach($this->malfunzionamenti as $el): ?>
+<!--                        <li class="component-list-item"><a href="#" class="ajaxmalf" value="--><?//= $el['id_malfunzionamento']; ?><!--">--><?//= $el['nome']; ?><!--</a></li>-->
+<!--                    --><?// endforeach; ?>
+<!--            </ul>-->
+<!--                --><?// else: ?>
+<!--                <div class="empty-list">-->
+<!--                    <p>--><?//= $this->msg; ?><!--</p>-->
+<!--                </div>-->
+<!--            --><?// endif; ?>
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!---->
+<?// endforeach; ?>
+
+<div class="popup-bg ajax hidden">
+    <div class="popup">
+        <i class="fa fa-times ajax"></i>
+        <div class="product-box">
+            <div class="product-component">
+                <p><span>Nome malfunzionamento:</span><span class="space name">test</span></p>
+                <p><span>Descrizione malfunzionamento:</span><span class="space desc">test</span></p>
+                <p><span>Soluzione: </span></p>
+            </div>
+            <div class="product-component solution-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $("a.ajaxmalf").unbind("click").click(function(e){
+        var el=$(this);
+        var id=el.attr("value");
+        var url="<?= $this->baseUrl('/malfunzionamenti/findsolution')?>";
+        e.preventDefault();
+        ajaxdetails(id,url);
+    });
+
+    $("i.fa-times.ajax").click(function(){
+        popupInit();
+    });
+
+</script>

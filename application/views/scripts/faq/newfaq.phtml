@@ -1,0 +1,18 @@
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+    <? if ($this->error): ?>
+        <h2><?= $this->error; ?></h2>
+    <? endif; ?>
+    <? if ($this->correct): ?>
+        <h2><?= $this->correct; ?></h2>
+    <? endif; ?>
+</div>
+<div id="form-insert-faq" class="<? if($this->class!=null) echo "insert"; ?>">
+    <?php echo $this->formFaq; ?>
+</div>
+<div id="form-msg">
+    <p class="correct-insert"></p>
+
+    <p class="wrong-insert"></p>
+</div>
+

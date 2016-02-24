@@ -1,0 +1,13 @@
+<!--FINESTRA ALERT-->
+<div id="modal-box">
+    <div class="back"><a href="<?php echo $this->url(array(
+            'controller' => 'categoria',
+            'action' 	=>  'categorialist',
+        ),
+            'default', true);?>" class="">Annulla inserimento</a> </div>
+    <div id="modal-alert" class="crud">
+        <h2>Inserisci una nuova soluzione</h2>
+        <?= $this->editCategoria; ?>
+        <h3 class="msg"></h3>
+    </div>
+</div>

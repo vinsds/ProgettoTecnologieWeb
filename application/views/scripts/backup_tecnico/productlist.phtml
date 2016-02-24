@@ -1,0 +1,105 @@
+<div class="title-page">
+    <? if(count($this->prodotti)==0): ?>
+    <h2>Non sono presenti prodotti nel sistema.</h2>
+        </div>
+    <? elseif(count($this->prodotti)>0): ?>
+    <h2><?= $this->msg; ?></h2>
+
+
+</div>
+<div class="tab topRow">
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Immagine</div>
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Nome</div>
+    <div class="tab-element " style="width: 200px; float: left; height: 50px; text-align: center">Descrizione</div>
+</div>
+    <? foreach($this->prodotti as $item): ?>
+        <a href="<?= $this->url(array(
+            "controller" => "tecnico",
+            "action" 	=>  "itemdetail",
+            "id" => $item['id_prodotto']
+        ),
+            "default", true)?>" class="tab noRound">
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['id_prodotto']; ?>
+            </div>
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <img src="/public/import/<?= $item['img_path'];?>" height="30" class="marginTop10" />
+            </div>
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['nome']; ?>
+            </div>
+            <div class="tab-element " style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['desc_prod']; ?>
+            </div>
+        </a>
+    <? endforeach; ?>
+ <? endif; ?>
+<!--RIMUOVERE product-name -desc thumb-->
+<!--<div class="catalog">-->
+<!--    --><?// foreach($this->prodotti as $item): ?>
+<!--    <div class="catalog-list">-->
+<!--        <a class="anchor-link-item" href="--><?//= $this->url(array(
+//            "controller" => "malfunzionamenti",
+//            "action" 	=>  "itemdetail",
+//            "id" => $item['id_prodotto']
+//        ),
+//            "default", true)?><!--"></a>-->
+<!--        <div class="catalog-item img">-->
+<!--            <img src="/public/import/--><?//= $item['img_path'];?><!--" />-->
+<!--        </div>-->
+<!--        <div class="catalog-item modello"><p><span>Modello</span><span class="modello">--><?//= $item['nome']; ?><!--</span></p></div>-->
+<!--        <div class="catalog-item desc"><p><span>desc</span><span class="desc">--><?//= $item['desc_prod']; ?><!--</span></p></div>-->
+<!--    </div>-->
+<!--    --><?// endforeach; ?>
+<!--</div>-->
+
+
+<style>
+
+
+
+
+
+    /*OLD*/
+    .anchor-link-item{display: block; height: 100%; width: 100%; position: absolute; z-index: 2}
+    .catalog-list{position: relative; margin-top: 5px; margin-bottom: 15px; border-bottom: 1px solid #cccccc}
+    .catalog {padding-top:30px; position:relative;width: 50%; height:auto; margin: auto;}
+    .catalog-item.img{
+        position: relative; height: 100px; width: 150px;
+    }
+
+    .catalog-item.img img{
+        width: 150px;
+    }
+    .catalog-item.modello,
+    .catalog-item.desc{
+        position: absolute; height: 100px; width: 400px; top:-16px; left:155px
+    }
+
+    .catalog-item.desc{
+        top:35px
+    }
+    .catalog-item.modello span,
+    .catalog-item.modello span.modello,
+    .catalog-item.desc span,
+    .catalog-item.desc span.desc{
+        display: block;
+        width: 100%;
+        background: rgba(3,169,244,1);
+        padding-left: 10px;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 10pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        color:white;
+    }
+
+    .catalog-item.modello span.modello,
+    .catalog-item.desc span.desc{
+        font-weight: lighter;
+        background: white;
+        color:rgba(3,169,244,1);
+    }
+
+</style>

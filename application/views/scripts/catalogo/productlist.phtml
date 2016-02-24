@@ -1,0 +1,37 @@
+<? $role= Zend_Auth::getInstance()->getIdentity()->role; ?>
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+    <? if($this->empty!=null):?>
+        <h2><?= $this->empty; ?></h2>
+    <? endif; ?>
+</div>
+
+<? if($this->prodotti!=null): ?>
+<div class="tab topRow">
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Immagine</div>
+    <div class="tab-element" style="width: 400px; float: left; height: 50px; text-align: center">Nome</div>
+<!--    <div class="tab-element " style="width: 200px; float: left; height: 50px; text-align: center">Descrizione</div>-->
+</div>
+    <? foreach($this->prodotti as $item): ?>
+        <a href="<?= $this->url(array(
+            "controller" => "catalogo",
+            "action" 	=>  "itemdetail",
+            "id" => $item['id_prodotto']
+        ),
+            "default", true)?>" class="tab noRound">
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['id_prodotto']; ?>
+            </div>
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <img src="<?= $this->baseUrl()?>/import/<?= $item['img_path'];?>" height="30" class="marginTop10" />
+            </div>
+            <div class="tab-element" style="width: 400px; float: left; height: 50px; text-align: center">
+                <?= $item['nome']; ?>
+            </div>
+<!--            <div class="tab-element " style="width: 200px; float: left; height: 50px; text-align: center">-->
+<!--                --><?//= $item['desc_prod']; ?>
+<!--            </div>-->
+        </a>
+    <? endforeach; ?>
+ <? endif; ?>

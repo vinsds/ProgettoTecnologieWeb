@@ -1,0 +1,49 @@
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+
+    <? if($this->delete_ok!=null):?>
+    <h2><?=$this->delete_ok?></h2>
+    <? endif; ?>
+
+    <? if($this->error!=null):?>
+        <h2><?=$this->error?></h2>
+    <? endif; ?>
+
+    <? if($this->empty!=null):?>
+        <h2><?=$this->empty?></h2>
+    <? endif; ?>
+</div>
+
+<? if($this->list!=null): ?>
+<div style="width: 1005px; margin: auto">
+    <div class="tab topRow" style="width: 1005px">
+        <div class="tab-element rightBorder" style="width: 100px; float:left;height: 50px; text-align: center">ID</div>
+        <div class="tab-element rightBorder" style="width: 350px;float:left; height: 50px; text-align: center">Domanda</div>
+        <div class="tab-element rightBorder" style="width: 350px; height: 50px; float:left; text-align: center">Risposta</div>
+        <div class="tab-element rightBorder" style="width: 100px; height: 50px; float:left; text-align: center">Modifica</div>
+        <div class="tab-element" style="width: 100px; height: 50px; float:left; text-align: center">Elimina</div>
+    </div>
+
+    <? foreach($this->list as $item): ?>
+        <a href="#" class="tab noRound admin-faq" value="<?= $item['id_faq']; ?>" style="width: 1005px; height: 150px">
+            <div class="tab-element rightBorder" style="width: 100px; float:left;height:150px; text-align: center">
+                <?= $item['id_faq']; ?>
+            </div>
+
+            <div class="tab-element rightBorder" style="width: 350px;float:left; height:150px; text-align: center">
+                <p class="faq-text"><?= $item['domanda']; ?></p>
+            </div>
+
+            <div class="tab-element rightBorder" style="width: 350px; height: 150px; float:left; text-align: center">
+                <p class="faq-text"><?= $item['risposta']; ?></p>
+            </div>
+
+            <div class="tab-element rightBorder" style="width: 100px; height: 150px; float:left; text-align: center"><i class="fa fa-pencil"></i></div>
+
+            <div class="tab-element" style="width: 100px; height: 50px; float:left; text-align: center"><i class="fa fa-trash"></i></div>
+        </a>
+    <? endforeach; ?>
+    <? endif; ?>
+</div>
+
+

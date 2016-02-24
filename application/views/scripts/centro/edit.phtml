@@ -1,0 +1,9 @@
+<div class="title-page <? if($this->class!=null) echo $this->class; ?>">
+    <? if($this->msg!=null):?>
+        <h2><?= $this->msg;?></h2>
+    <? endif; ?>
+
+    <? if($this->error!=null):?>
+        <h2><?= $this->error;?></h2>
+    <? endif; ?>
+</div>

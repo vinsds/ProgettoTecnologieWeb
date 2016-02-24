@@ -1,0 +1,18 @@
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+</div>
+
+<div id="ass-content">
+
+    <a href="<?php echo $this->url(array(
+            'controller' => 'admin',
+            'action' 	=>  'aggiungi',
+        ),
+            'default', true);?>">Crea nuovo profilo</a>
+    <a href="<?php echo $this->url(array(
+            'controller' => 'admin',
+            'action' 	=>  'userlist',
+        ),
+            'default', true);?>">Modifica - Elimina profilo</a>
+</div>
+

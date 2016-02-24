@@ -1,0 +1,59 @@
+<div class="menu-box">
+    <ul class="list">
+        <li class="item"><a href="<?php echo $this->url(array(
+                'controller' => 'catalogo',
+                'action' 	=>  'productlist',
+            ),
+                'default', true);?>" class=""><i class="fa fa-list"></i>Catalogo prodotti</a></li>
+        <li class="item"><a href="<?php echo $this->url(array(
+                'controller' => 'admin',
+                'action' 	=>  'index',
+            ),
+                'default', true);?>" class=""><i class="fa fa-plug"></i>Gestione prodotti</a></li>
+
+        <li class="item"><a href="<?php echo $this->url(array(
+                'controller' => 'catalogo',
+                'action' 	=>  'malfunzionamentilist',
+            ),
+                'default', true);?>" class=""><i class="fa fa-plug"></i>Gestione malfunzionamenti</a></li>
+
+        <li class="item"><a href="<?php echo $this->url(array(
+                'controller' => 'admin',
+                'action' 	=>  'associazioneprodcomp',
+            ),
+                'default', true);?>" class=""><i class="fa fa-plug"></i>Prodotto - Componenti</a></li>
+
+
+        <li class="item"><a href="<?php echo $this->url(array(
+                'controller' => 'malfunzionamento',
+                'action' 	=>  'solutionlist',
+            ),
+                'default', true);?>" class=""><i class="fa fa-exclamation"></i>Gestione Soluzioni</a></li>
+
+        <li class="item"><a href="<?php echo $this->url(array(
+                'controller' => 'admin',
+                'action' 	=>  'chooseutente',
+            ),
+                'default', true);?>" class=""><i class="fa fa-user"></i>Gestione Utenti</a></li>
+
+
+        <li class="item"><a href="<?php echo $this->url(array(
+                'controller' => 'centro',
+                'action' 	=>  'index',
+            ),
+                'default', true);?>" class=""><i class="fa fa-plug"></i>Gestione centri assistenza</a></li>
+
+
+        <li class="item"><a href="<?php echo $this->url(array(
+                'controller' => 'admin',
+                'action' 	=>  'itemcategorie',
+            ),
+                'default', true);?>" class=""><i class="fa fa-plug"></i>categorie e sottocategorie</a></li>
+
+        <li class="item"><a href="<?php echo $this->url(array(
+                'controller' => 'faq',
+                'action' 	=>  'index',
+            ),
+                'default', true);?>" class=""><i class="fa fa-question"></i>Gestione F.A.Q</a></li>
+    </ul>
+</div>

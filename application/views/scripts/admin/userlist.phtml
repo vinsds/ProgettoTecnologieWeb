@@ -1,0 +1,40 @@
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+</div>
+<div style="width: 800px; margin: auto">
+        <div class="tab topRow">
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Nome</div>
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Cognome</div>
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Ruolo</div>
+            <div class="tab-element rightBorder" style="width: 100px; float: left; height: 50px; text-align: center">Modifica</div>
+            <div class="tab-element " style="width: 100px; float: left; height: 50px; text-align: center">Elimina</div>
+
+        </div>
+    <? foreach($this->user as $item): ?>
+        <a href="#" class="tab noRound admin-user" value="<?= $item['id_user']; ?>">
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['nome']; ?>
+            </div>
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['cognome']; ?>
+            </div>
+            <div class="tab-element rightBorder nome" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['role']; ?>
+            </div>
+            <div class="tab-element rightBorder" style="width: 100px; float: left; height: 50px; text-align: center">
+                <i class="fa fa-pencil"></i>
+            </div>
+            <div class="tab-element " style="width: 100px; float: left; height: 50px; text-align: center">
+                <i class="fa fa-trash"></i>
+            </div>
+        </a>
+    <? endforeach; ?>
+</div>
+
+<style>
+    .admin-user i.fa{
+        display: block;
+        height: 100%; width: 100%;
+        line-height: 50px;
+    }
+</style>

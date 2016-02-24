@@ -1,0 +1,113 @@
+<? $role = Zend_Auth::getInstance()->getIdentity()->role; ?>
+<? if ($role == 'tecnico') {
+    $label = "Leggi soluzione";
+    $action = "<i class='fa fa-search'></i> Soluzione";
+} ?>
+<? if ($role == 'staff' || $role == 'admin') {
+    $label = "Azione";
+    $action = "<i class='fa fa-cogs'></i> Modifica";
+} ?>
+
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+    <? if ($this->empty != null): ?>
+        <h2><?= $this->empty; ?></h2>
+    <? endif; ?>
+</div>
+
+<? if (count($this->malf) > 0): ?>
+    <div class="tab">
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id
+        </div>
+        <div class="tab-element rightBorder" style="width: 400px; float: left; height: 50px; text-align: center">Nome
+        </div>
+        <div class="tab-element "
+             style="width: 200px; float: left; height: 50px; text-align: center"><?= $label; ?></div>
+    </div>
+
+    <? foreach ($this->malf as $item): ?>
+        <a href="#" class="tab noRound ajaxmalf" value="<?= $item['id_malfunzionamento']; ?>">
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['id_malfunzionamento']; ?>
+            </div>
+            <div class="tab-element rightBorder" style="width: 400px; float: left; height: 50px; text-align: center">
+                <?= $item['nome']; ?>
+            </div>
+            <div class="tab-element " style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $action; ?>
+            </div>
+        </a>
+    <? endforeach; ?>
+<? endif; ?>
+<!--VISUALIZZA LA FINESTRA DI ALERT PER L'ELIMINAZIONE DEL MALFUNZIONAMENTO-->
+<? if ($role == 'admin' || $role == 'staff'): ?>
+    <div class="bottom-bar-fixed-bottom">
+        <div class="bottom-bar">
+            <a href="<?= $this->baseUrl('/malfunzionamento/createm'); ?>" class="btn add-malf">
+                <i class="fa fa-plus"></i>
+
+                <p>Aggiungi Malfunzionamento</p>
+            </a>
+            <a href="<?= $this->baseUrl('/malfunzionamento/editm'); ?>" class="btn edit-malf">
+                <i class="fa fa-cogs"></i>
+
+                <p>Modifica<br/> Malfunzionamento</p>
+            </a>
+
+            <div class="btn remove-malf">
+                <i class="fa fa-trash"></i>
+
+                <p>Rimuovi<br/> Malfunzionamento</p>
+            </div>
+            <div class="btn change-ass">
+                <i class="fa fa-exchange"></i>
+
+                <p>Gestione<br/> Associazione</p>
+            </div>
+        </div>
+    </div>
+<? endif; ?>
+
+<? if ($role == 'admin' || $role == 'staff'): ?>
+    <div id="modal-box">
+        <div id="modal-alert" class="delete">
+
+        </div>
+    </div>
+<? endif ?>
+
+
+<div id="modal-change-box">
+    <i class="fa fa-times"></i>
+
+    <div id="modal-change-box-content">
+        <? if ($role == 'tecnico'): ?>
+            <h2>Soluzioni disponibili</h2>
+        <? elseif ($role == 'staff' || $role == 'admin'): ?>
+            <h2>Modifica associazione malfunzionamento-soluzione</h2>
+        <? endif ?>
+        <h3>Seleziona il nome della soluzione per accedere alla sua descrizione</h3>
+
+        <p>Malfunzionamento selezionato: <span>test</span></p>
+
+        <p>Descrizione malfunzionamento selezionato: <span class="desc-malf"></span></p>
+
+        <? if ($role == 'staff' || $role == 'admin'): ?>
+        <h3>Fare click sulla soluzione per creare l'associazione</h3>
+        <? endif; ?>
+        <h2>Soluzioni</h2>
+
+        <div class="solutions-list">
+        </div>
+        <? if ($role == 'staff' || $role == 'admin'): ?>
+            <p class="correct-insert"></p>
+            <p class="wrong-insert"></p>
+        <? endif ?>
+    </div>
+    <div id="modal-change-box-description">
+        <h2>Descrizione soluzione</h2>
+
+        <p></p>
+    </div>
+</div>
+

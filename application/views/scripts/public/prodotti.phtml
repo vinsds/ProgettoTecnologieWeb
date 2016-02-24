@@ -1,0 +1,72 @@
+
+<div id="main-content-products">
+    <h2>Prodotti</h2>
+<? if(count($this->prodotti)>0): ?>
+    <?php foreach ($this->prodotti as $item): ?>
+        <div class="product-item-row" value="<?= $item['id_prodotto']?>">
+    <div class="product-image bg" style="background-image: url(<?= $this->productImg($item['img_path']); ?>);"></div>
+    <div class="product-details-box">
+                    <p>Modello:</p>
+                    <p class="modello"><?= $item['nome']?></p>
+                    <p>Descrizione:</p>
+                    <p class="descrizione"><?= $item['desc_prod']?></p>
+            </div>
+        </div>
+    <?php endforeach; ?>
+
+    <? else: ?>
+    <h2>Non sono presenti prodotti nel database</h2>
+<? endif; ?>
+</div>
+
+<div class="searchSide">
+
+    <h3><?= $this->msgRicerca; ?></h3>
+
+    <?php echo $this->searchForm; ?>
+
+    <h3><?= $this->msgCategoria; ?></h3>
+    <span class="reset-filter">Reset</span>
+
+    <? if(count($this->categorie)>0): ?>
+        <? foreach($this->categorie as $item): ?>
+            <div class="element">
+                <input type="radio" value="<?= $item['id_categoria']; ?>" name="categorie"><?= $item['nome']; ?><br />
+            </div>
+        <? endforeach; ?>
+    <? endif; ?>
+
+    <div class="element-subcategory hidden">
+        <h3></h3>
+        <div class="element">
+        </div>
+    </div>
+</div>
+
+<div id="modal-box">
+    <div id="modal-content">
+        <div id="modal-bar">
+            <i class="fa fa-times"></i>
+        </div>
+        <div style="">
+
+        </div>
+        <div class="row">
+            <div class="modal-img" style=""></div>
+            <div class="modal-content-txt">
+                <p class="label">Modello</p>
+                <p class="field modello"></p>
+                <p class="label">Descrizione</p>
+                <p class="field descrizione"></p>
+            </div>
+        </div>
+        <div class="row">
+            <p class="label istruzioni">istruzioni d'uso</p>
+            <p class="istruzioni-full"></p>
+        </div>
+        <div class="row" style="margin-top: -70px">
+            <p class="label istruzioni">Note d'uso</p>
+            <p class="note-full"></p>
+        </div>
+    </div>
+</div>

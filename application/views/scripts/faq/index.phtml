@@ -1,0 +1,17 @@
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+</div>
+
+<div id="ass-content">
+
+    <a href="<?php echo $this->url(array(
+        'controller' => 'faq',
+        'action' 	=>  'newfaq',
+    ),
+        'default', true);?>">Aggiungi F.A.Q</a>
+    <a href="<?php echo $this->url(array(
+        'controller' => 'faq',
+        'action' 	=>  'faqlist',
+    ),
+        'default', true);?>">Modifica - Elimina F.A.Q</a>
+</div>

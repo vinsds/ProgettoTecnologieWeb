@@ -1,0 +1,50 @@
+<!--<div class="product-detail-left" style="position: relative; width: 600px; margin: auto">-->
+<!--    <div class="product-component">-->
+<!--        <h2>Risultato ricerca componenti</h2>-->
+<!--        --><?// if($this->results!=null): ?>
+<!--            <ul class="component-list">-->
+<!--                --><?// foreach($this->results as $comp): ?>
+<!--                    <li class="component-list-item"><a href="--><?//= $this->url(array(
+//                            "controller" => "malfunzionamenti",
+//                            "action" 	=>  "searchproducts",
+//                            "id" => $comp['id_componente']
+//                        ),
+//                            "default", true)?><!--">--><?//= $comp['nome']; ?><!--</a></li>-->
+<!--                --><?// endforeach; ?>
+<!--            </ul>-->
+<!--        --><?// else: ?>
+<!--            <div class="empty-list">-->
+<!--                <p>--><?//= $this->msg; ?><!--</p>-->
+<!--            </div>-->
+<!--        --><?// endif; ?>
+<!--    </div>-->
+<!--</div>-->
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+    <p>Malfunzionamento selezionato: <span><?= $this->malf; ?></span></p>
+</div>
+<div class="tab">
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Nome</div>
+    <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">Azione</div>
+</div>
+<? if($this->results != null): ?>
+<? foreach($this->results as $item): ?>
+    <a href="<?= $this->url(array(
+        "controller" => "tecnico",
+        "action" 	=>  "searchproducts",
+        "id" => $item['id_componente']
+    ),
+        "default", true)?>" class="tab noRound">
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+            <?= $item['id_componente']; ?>
+        </div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+            <?= $item['nome']; ?>
+        </div>
+        <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">
+            <i class="fa fa-search"></i> Prodotti associati
+        </div>
+    </a>
+<? endforeach; ?>
+<? endif; ?>

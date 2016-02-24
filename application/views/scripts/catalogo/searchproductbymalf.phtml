@@ -1,0 +1,41 @@
+<? if($this->results == null): ?>
+    <div class="title-page">
+        <h2><?= $this->empty; ?></h2>
+        <p>Malfunzionamento selezionata: <span><?= $this->malf; ?></span></p>
+    </div>
+<? endif ?>
+<? if($this->results != null): ?>
+    <div class="title-page">
+        <h2><?= $this->msg; ?></h2>
+        <p>Malfunzionamento selezionata: <span><?= $this->malf; ?></span></p>
+    </div>
+<div class="tab">
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+    <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Nome</div>
+    <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">Azione</div>
+</div>
+
+
+<? foreach($this->results as $item): ?>
+    <a href="<?= $this->url(array(
+        "controller" => "catalogo",
+        "action" 	=>  "itemdetail",
+        "id" => $item['id_prodotto']
+    ),
+        "default", true)?>" class="tab noRound">
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+            <?= $item['id_prodotto']; ?>
+        </div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+            <?= $item['nome']; ?>
+        </div>
+        <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">
+            <i class="fa fa-search"></i> Visualizza prodotto
+        </div>
+    </a>
+<? endforeach; ?>
+<? endif ?>
+
+<div id="modal-box">
+
+</div>

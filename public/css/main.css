@@ -1,0 +1,2334 @@
+/*Global Parameters*/
+input[type=submit]::-moz-focus-inner {
+    border: 0;
+}
+
+select {
+     -moz-appearance: none;
+     -webkit-appearance: none;
+     text-indent: 0.01px;
+     text-overflow: '';
+ }
+
+html, body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+html, body {
+    background: white;
+    overflow-x: hidden;
+}
+body, button {
+    font-family: 'Open Sans Condensed';
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+button:hover,
+button:focus,
+a:focus{
+    box-shadow: none;
+    outline:none;
+}
+
+p{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 13pt;
+    line-height: 25px;
+}
+
+
+h2.correct,
+.title-page h3.correct{color: green!important; text-transform: uppercase}
+
+.txt-black{
+    color: black!important;
+    font-family: 'Open Sans Regular', sans-serif!important;
+    font-size: 9pt!important;
+    font-weight: normal!important;
+}
+
+.whiteBg{background: white!important;}
+/*LIVELLO 0*/
+#mainContent {
+    position: relative;
+    width: 100%;
+    margin: auto;
+}
+
+.fullscreen-img{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 0;
+}
+
+p.faq-text{
+    font-size: 9pt!important;
+    font-family: 'Open Sans Regular', sans-serif!important;
+    line-height: 20px!important;
+}
+
+section {
+    position: relative;
+    padding: 0;
+}
+
+section.homePage{
+    height: 400px;
+    width: 100%;
+    position: relative;
+    padding: 0;
+    color: white;
+    border-top:1px solid white;
+    border-bottom:1px solid white;
+
+}
+
+section .opacity{
+    background: rgba(3,169,244,0.9);
+    position: absolute;
+    top:0;
+    left:0;
+    height: 400px;
+    width: 100%;
+}
+
+
+section.homePage h2{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 28pt;
+    padding-top: 15px;
+    font-weight: bold;
+    position: absolute;
+}
+
+section.homePage p{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -60%);
+    width: 80%;
+    font-size: 15pt;
+    text-align: center;
+    line-height:40px;
+}
+
+
+section.homePage button{
+    position: absolute;
+    bottom: 50px;
+    line-height: 50px;
+    height: 50px;
+    border:1px solid white;
+    border-radius: 3px;
+    background: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12pt;
+    font-family: 'Open Sans Regular', sans-serif;
+    color: white;
+    width: 250px;
+    left:50%;
+    margin-left: -125px;
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+section.homePage button:hover{
+    background: rgba(255,255,255,0.4);
+    -webkit-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+section.page{
+    width: 80%;
+    margin: auto;
+}
+
+section.page h2{
+    color: rgba(3,169,244,0.7);
+    position: relative;
+}
+
+section.page h3{
+    color: rgba(3,169,244,0.7);
+    position: relative;
+
+}
+
+section h2{
+    text-transform: uppercase;
+    color: white;
+    display: block;
+    font-weight: normal;
+    /*position: absolute;*/
+}
+
+section h3{
+    color: rgba(3,169,244,0.7);
+    display: block;
+    margin-top: -23px;
+    font-weight: normal;
+}
+
+section.page{
+    margin-bottom: 50px;
+}
+
+section.page:first-child{
+    padding-top: 120px;
+}
+
+section.page:last-child{
+    padding-bottom: 100px;
+}
+
+section.loginPage h2{
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #039be5;
+    font-weight: normal;
+    font-size: 28pt;
+    margin-top: -10px;
+}
+
+section.loginPage h3.error{
+    color: red;
+    font-size: 20pt;
+}
+
+section.loginPage h3{
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #cccccc;
+    font-size: 14pt;
+    margin-top: -15px;
+    font-weight: normal;
+}
+
+section.loginPage form#login{
+    margin: auto;
+    width: 55%;
+}
+
+section.loginPage form#login input[type=text],
+section.loginPage form#login input[type=password]{
+    width: 100%; height: 50px;
+    border:none;
+    border-bottom: 1px solid rgb(3,169,244);
+    margin-bottom: 25px;
+}
+
+section.loginPage form#login input[placeholder]{
+    text-align: center;
+    font-size: 13pt;
+    color: #666666;
+}
+
+section.loginPage form#login .button{
+    width: 100%;
+    margin-top: 35px;
+}
+
+section.loginPage form#login input[type=submit]{
+    width: 100%;
+    height: 50px;
+    border:1px solid rgb(3,169,244);
+    border-radius: 3px;
+    text-transform: uppercase;
+    background: none;
+    font-size: 12pt;
+    color: #039be5;
+    -webkit-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+section.loginPage form#login input[type=submit]:hover{
+    color: white!important;
+    background: rgba(3,169,244,1);
+    -webkit-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+
+}
+
+section.loginPage form#login input[type=submit]:hover{
+    color: #039be5;
+}
+
+
+section.height500{
+    height: 500px!important;
+}
+
+
+#main-content-products h2{
+    color:  rgba(3,169,244,1);
+    text-transform: uppercase;
+    font-size: 15pt;
+}
+
+
+/*BOX-COLLAPSE*/
+.box-collapse .faq-title{
+    border:1px solid rgba(3,169,244,1);
+    border-bottom: 1px solid white;
+    background: rgba(3,169,244,1);
+    color: white;
+    cursor: pointer;
+}
+
+.box-collapse .faq-title h4,
+.box-collapse .faq-description p{
+    margin-left: 10px;
+}
+
+.box-collapse .faq-description{
+    display: none;
+}
+
+.box-collapse span.label{
+    font-weight: bold;
+    margin-right: 15px;
+    width: 100%;
+    display: block;
+}
+
+.box-collapse span.label.descrizione{
+    border-bottom:1px solid rgba(3,169,244,1);
+    margin-bottom: 20px;
+}
+
+.admin-faq i.fa{
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 50px;
+}
+
+.product-item-row{
+    width: 100%;
+    height: 150px;
+    cursor: pointer;
+    border:1px solid #cccccc;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+.product-item-row:hover{
+    border-color:rgba(3,169,244,1);
+}
+
+.product-details-box{
+    margin-top: 20px;
+}
+.product-item-row p{
+    font-size: 8pt;
+    font-family: 'Open Sans Regular', sans-serif;
+    padding-left: 10px;
+    margin-left: 160px;
+    width: 70%;
+}
+
+.product-item-row .product-image{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+}
+
+.product-item-row .product-image.bg{
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.searchSide{
+    position: absolute;
+    top:-10px;
+    left:0;
+    width: 260px;
+    height: 100%;
+}
+
+.searchSide h3{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 10pt;
+    text-transform: uppercase;
+    color: rgba(3,169,256,1);
+    display: block;
+    width: 100%;
+    padding-top: 10px; padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.searchSide .contentForm,
+.searchSide .button{
+    width: 150px;
+}
+
+.searchSide form#ricerca{
+    /*background: red;*/
+    padding: 0;
+    margin-top: -30px;
+}
+
+.searchSide form#ricerca input[type=text]{
+    width: 150px;
+    height: 20px;
+    border:1px solid #cccccc;
+    margin-left: -70px;
+    border-radius: 3px;
+    padding-left: 5px;
+}
+
+.searchSide form#ricerca input[type=submit]{
+    width: 70px;
+    border:1px solid rgba(3,169,269,1);
+    background: none;
+    border-radius: 3px;
+    color:rgba(3,169,269,1);
+    height: 24px;
+    left: 180px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 63px;
+    font-size: 8pt;
+}
+
+.searchSide form#ricerca input[type=submit]:hover{
+    background: rgba(3,169,269,1);
+    color: white;
+}
+
+.searchSide .element{
+    font-size: 9pt;
+    font-family: 'Open Sans Regular', sans-serif;
+    margin-bottom: 5px; margin-top: 5px;
+    font-weight: normal;
+    line-height: 25px;
+
+}
+.searchSide input[type=radio]{
+    width: 12px;
+    margin-left: 10px;
+}
+
+
+.searchSide span.reset-filter{
+    font-size: 9pt;
+    color:rgba(3,169,269,1);
+    font-family: 'Open Sans Regular', sans-serif;
+    text-transform: uppercase;
+    position: absolute;
+    left: 192px;
+    top: 117px;
+    cursor: pointer;
+}
+
+#main-content-products{
+    position: relative;
+    margin-top:60px;
+    margin-left: 350px;
+    width:60%;
+    margin-bottom: 600px;
+}
+
+.product-details-box p.modello,
+.product-details-box p.descrizione{
+    margin-top: -15px;
+    font-size: 10pt;
+    line-height: 16px;
+
+}
+.product-details-box p.modello{
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+
+
+.back{position:absolute; right:10px; top:10px;text-transform: uppercase;font-weight: bold}
+.back a, .back a:hover{color: white}
+.correctField{border:2px solid green!important;}
+.wrongField{border:2px solid red!important;}
+#modal-box, #modal-change-box {
+    position: fixed;
+    top:50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3,169,259,0.9);
+    z-index: 10;
+    display: none;
+}
+
+
+
+#modal-change-box-content{
+    width: 450px;
+    height: 550px;
+    position: absolute;
+    left:35%; top: 50%;
+    margin-left: -225px;
+    margin-top: -300px;
+    background: white;
+    border-radius: 3px;
+    line-height: 29px;
+}
+
+#modal-change-box i.fa{
+    position: absolute;
+    top:20px;
+    right: 30px;
+    font-size: 15pt;
+    color: white;
+    cursor: pointer;
+}
+
+
+#modal-change-box-description{
+    background: white none repeat scroll 0 0;
+    border-radius: 3px;
+    height: 300px;
+    left: 65%;
+    margin-left: -100px;
+    margin-top: -300px;
+    position: absolute;
+    top: 50%;
+    width: 350px;
+}
+
+
+#modal-change-box-content h2,
+#modal-change-box-content h3,
+#modal-change-box-description h2{
+    font-size: 12pt;
+    text-transform: uppercase;
+    width: 90%;
+    margin: 20px auto;
+    color: rgba(3,169,259,0.9);
+}
+
+#modal-change-box-content h3{
+    font-size: 9pt;
+    color: rgba(3,169,259,0.6);
+    margin-top: -15px;
+}
+
+#modal-change-box-description p,
+#modal-change-box-content p{
+    font-size: 10pt;
+    width: 90%;
+    margin: 20px auto;
+}
+
+#modal-change-box p.correct-insert{
+    text-transform: uppercase;
+    color: green;
+    font-weight: bold;
+    font-size: 15pt;
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#modal-change-box p.wrong-insert{
+    text-transform: uppercase;
+    color: red;
+    font-weight: bold;
+    font-size: 15pt;
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#modal-change-box-content span{
+    font-weight: bold;
+    color: rgba(3,169,259,0.9);
+    font-size: 12pt;
+    text-transform: uppercase;
+    display: block;
+    border-top: 1px solid #cccccc;
+}
+
+#modal-change-box-content span.desc-malf{
+    font-weight: normal;
+    color: black;
+    font-size: 10pt;
+    text-transform: none;
+    display: block;
+}
+
+#modal-change-box-content .solutions-list{
+    width: 90%;
+    height: 150px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: auto;
+
+}
+
+#modal-change-box-content .solutions-list .item{
+    width: 100%;
+    height: 30px;
+    margin: auto;
+    position: relative;
+    cursor: pointer;
+    padding-left: 10px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+#modal-change-box-content .solutions-list .item:hover{
+    color: black;
+    background: rgba(3,169,259,0.1);
+    padding-left: 20px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+#modal-change-box-content .solutions-list .item.active{
+   color: white;
+    background: rgba(3,169,259,0.9);
+    padding-left: 20px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+#modal-alert{
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    left:50%; top:50%; margin-left: -250px; margin-top: -280px;
+    background: white;
+    border-radius: 3px;
+    z-index: 20;
+    display: none;
+    text-align: center;
+}
+
+#modal-alert.crud h3.msg{
+    color: red;
+    text-transform: uppercase;
+}
+
+#modal-alert.crud{
+    width: 600px;
+    margin-left: -300px;
+    padding: 25px;
+    height: 500px;
+    margin-top: -320px;
+}
+
+#modal-alert.crud h2{
+    text-align: left;
+    color: rgb(3,169,269);
+    text-transform: uppercase;
+    font-size: 15pt;
+    width: 82%;
+    margin: auto;
+}
+
+#modal-alert.crud form {
+    width: 90%;
+    margin: auto;
+    position: relative;
+    height: 350px;
+}
+
+#modal-alert.crud label{
+    text-align: left;
+    display: block;
+    margin: auto;
+    width: 90%;
+    padding-left: 5px;
+}
+
+#modal-alert.crud form input[type=text],
+#modal-alert.crud form textarea,
+#modal-alert.crud form input[type=submit]{
+    height: 30px;
+    width: 90%;
+    text-align: left;
+    border:1px solid rgba(3,169,244,1);
+    border-radius: 3px;
+    margin-bottom: 15px;
+    padding-left: 5px;
+}
+
+#modal-alert.crud form input[type=submit]{
+    height: 40px;
+    width: 100%;
+    background: white;
+    color: rgba(3,169,244,1);
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#modal-alert.crud form input[type=submit]:hover{
+    background: rgba(3,169,244,1);
+    color: white
+}
+
+
+form .button{
+    margin: auto;
+    padding: 0;
+    width: 90%;
+}
+
+#modal-alert.crud form#createMalfunzionamento textarea,
+#modal-alert.crud form#createSoluzione textarea,
+#modal-alert.crud form#editMalfunzionamento textarea,
+#modal-alert.crud form#editSoluzione textarea{
+    height: 150px;
+    padding-top: 10px;
+    font-family: 'Open Sans Regular', sans-serif;
+    font-size: 10pt;
+    resize: none;
+}
+
+
+#modal-alert span.delete-item{
+    color: red;
+}
+
+#modal-alert span.yes{
+    margin-left: 0px;
+    font-size: 20pt;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#modal-alert span.no{
+    margin-left: 200px;
+    font-size: 20pt;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+#modal-alert p{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 12pt;
+    color: rgba(3,169,244,1);
+    font-weight: bold;
+    width: 60%;
+}
+
+#modal-content{
+    position: absolute;
+    width: 800px;
+    height: 580px;
+    left:50%; top:50%; margin-left: -400px; margin-top: -320px;
+    background: white;
+    border-radius: 3px;
+    z-index: 20;
+    display: none;
+}
+
+#modal-content i.fa-times{
+    position: absolute;
+    top:15px; right: 15px;
+    font-size: 15pt;color: black;
+    cursor: pointer;
+}
+
+#modal-content #modal-bar{
+    position: relative;
+    width: 100%;
+    height: 50px;
+}
+
+#modal-content .row{
+    width: 90%; height: 200px;margin: auto
+}
+
+#modal-content .modal-img{
+    position: absolute; width: 200px; height: 200px;
+    background-size: 100% auto; background-position: center; background-repeat: no-repeat;
+    border:1px solid #cccccc;
+    border-radius: 3px;
+}
+
+#modal-content .modal-content-txt{
+    position: absolute; width: 433px; height: 200px;
+    left:250px; padding-left: 10px;
+}
+
+#modal-content .modal-content-txt p{
+   font-family: 'Open Sans Condensed', sans-serif;
+   font-size: 10pt;
+}
+
+#modal-content .modal-content-txt p.label{
+    background: rgba(3,169,244,1);
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+#modal-content .modal-content-txt p.field{
+    padding-left: 5px;
+    font-size: 11pt;
+    margin-top: -10px;
+    font-family: 'Open Sans Regular', sans-serif;
+}
+
+#modal-content .row p.istruzioni {
+    width: 90%;
+    background: rgba(3,169,244,1);
+    padding-left: 5px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 11pt;
+
+}
+
+#modal-content p.istruzioni-full,
+#modal-content p.note-full{
+    width: 90%;
+    font-size: 9pt;
+    padding: 5px;
+    line-height: 15px;
+    margin-top: -10px;
+    font-family: 'Open Sans Regular', sans-serif;
+}
+
+#modal-content .modal-content-txt.malfunzionamento{
+    width: 700px;
+    height: auto;
+    padding: 0;
+    left:50%;
+    margin-left:-350px;
+}
+
+#modal-content .modal-content-txt.malfunzionamento p{
+    font-size: 9pt;
+    text-transform: uppercase;
+    display: block;
+}
+#modal-content .modal-content-txt.malfunzionamento span{
+    text-transform: uppercase;
+    font-size: 10pt;
+    font-weight: bold;
+    background: rgba(3,169,244,1);
+    display: block;
+    color: white;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+#modal-content .modal-content-txt.malfunzionamento span.space{
+    color: black;
+    background: white;
+    font-weight: lighter;
+    font-family: 'Open Sans Regular', sans-serif;
+    font-size: 9pt;
+    line-height: 15px;
+}
+
+#modal-content .modal-content-txt.malfunzionamento .solution-text p{
+    font-family: 'Open Sans Regular', sans-serif;
+    font-size: 8pt;
+    line-height: 18px;
+    padding: 10px;
+}
+
+
+
+#ass-content{
+    position: relative;
+    margin: 50px auto auto auto;
+    width: 600px;
+}
+
+#ass-content a{
+    width: 100%;
+    border:1px solid rgba(3,169,269,1);
+    border-radius: 3px;
+    margin: 20px auto 20px auto;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(3,169,269,1);
+    display: block;
+    padding-top: 15px; padding-bottom: 15px;
+    transition: all 0.2s ease-in-out;
+    font-size: 23pt;
+    font-weight: bold;
+}
+
+#ass-content a:hover{
+    background: rgba(3,169,269,1);
+    color:white;
+    transition: all 0.2s ease-in-out;
+}
+
+#admin-prod-comp{
+    position: relative; width: 850px; margin: auto; text-align: center;
+}
+
+#admin-prod-comp .col{
+    float:left; width: 402px
+}
+
+#admin-prod-comp .col a{
+    width: 90%;
+    border:1px solid rgba(3,169,269,1);
+    border-radius: 3px;
+    margin: 20px auto 20px auto;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(3,169,269,1);
+    display: block;
+    padding-top: 15px; padding-bottom: 15px;
+    transition: all 0.2s ease-in-out;
+    font-size: 18pt;
+    font-weight: bold;
+}
+/*******/
+.popup .product-component p{
+    font-size: 9pt;
+    text-transform: uppercase;
+    display: block;
+}
+
+.popup .product-component span{
+    text-transform: uppercase;
+    font-size: 10pt;
+    font-weight: bold;
+    background: rgba(3,169,244,1);
+    display: block;
+    color: white;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.popup .product-component span.space{
+    color: black;
+    background: white;
+    font-weight: lighter;
+    font-family: 'Open Sans Regular', sans-serif;
+    font-size: 7pt;
+    line-height: 15px;
+}
+/******/
+
+.fixed{
+    position: fixed;
+}
+
+.col{
+    width:300px; height: 100%; overflow-y: auto; overflow-x: hidden;
+}
+
+.left{
+    top:50px; left:0;
+}
+
+.left300{
+    top:50px; left:300px;
+}
+
+.left600{
+    top:50px; left:600px;
+}
+
+.left600 h3{
+    color: rgba(3,169,269,1);
+    padding-left: 10px;
+}
+
+.left600 p{
+    color: black;
+    padding-left: 10px;
+}
+
+.col .item{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #cccccc;
+    cursor: pointer;
+    line-height: 50px;
+    padding-left: 10px;
+    background: rgba(255,255,255,1);
+    -webkit-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.col .item:hover,
+.col .item.active{
+    background: rgba(3,169,269,1);
+    -webkit-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    color: white;
+}
+
+form#login input[type=text].emptyField,
+form#login input[type=password].emptyField{
+    border-bottom: 2px solid red !important;
+}
+
+.emptyField
+{
+    border-bottom: 2px solid red !important;
+}
+
+/*LAYOUT LIVELLO UTENTE*/
+.popup-bg.find{padding-top: 50px}
+.popup-bg.find h2{
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-transform: uppercase;
+}
+
+/*USER BOX*/
+.user .user-sub{
+    position: absolute;
+    width: 120px;
+    /*height: 100px;*/
+    right: 0px;
+    top: 50px;
+}
+
+.user .user-sub-item{
+    position: relative;
+    height: 50px;
+    width: 120px;
+    background: white;
+    line-height: 52px;
+    font-size: 10pt;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-left: 50px;
+    background: rgba(3,166,249,1);
+    color: white;
+    z-index: 9999;
+}
+.user .user-sub-item i.fa{
+    font-size:17pt;
+    margin-left: -30px;
+    color: white;
+}
+
+.user .user-sub-item a{
+    color: white;
+}
+
+.user .user-sub-item:hover >a,
+.user .user-sub-item:hover >i.fa{
+    color: rgba(3,169,269,1);
+}
+
+.user .user-sub-item:hover{
+    background: white;
+
+}
+
+.user{
+    width: 100px; height: 50px; position: absolute; right: 0; top:0; z-index: 10;
+    border-left: 1px solid white;
+    padding-left: 20px;
+    cursor: pointer;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+.user i.fa{
+    position: absolute;
+    color: white;
+    font-size: 14pt;
+    top:15px;
+}
+
+.user p{
+    padding-left: 25px;
+    line-height: 30px;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Open Sans Regular', sans-serif;
+    font-size: 8pt;
+}
+
+.popup-bg .menu-box{
+    width: 100%;
+    height: auto;
+    background: white;
+    position: fixed;
+    top:50px;
+    padding-bottom: 50px;
+}
+
+.menu-box ul.list{
+    list-style: none;
+}
+
+.menu-box ul.list > li{
+    float: left;
+    display: block;
+    border: 1px solid rgba(3,169,244,1);
+    width: 170px;
+    margin-top: 10px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.menu-box ul.list > li > a{
+    text-align: center;
+    font-size: 9.5pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgba(3,169,244,1);
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+.menu-box ul.list > li > a:hover{
+    background: rgba(3,169,244,1);
+    color: white;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+
+.menu-box ul.list > li.item > a > i.fa{
+    font-size: 32pt;
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+
+form{
+    width: 40%;
+    margin: auto;
+}
+
+form input[type=text],
+form input[type=password],
+form select,
+form input[type=submit]{
+    width: 100%;
+    height: 30px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    box-shadow: none;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+form input[type=submit]
+{
+    background: white;
+    border:1px solid rgba(3,169,269,1);
+    color:rgba(3,169,269,1);
+    text-transform: uppercase;
+    height: 50px;
+
+}
+
+form input[type=submit]:hover{
+    background: rgba(3,169,244,1);
+    color: white
+}
+
+form textarea{
+    width: 100%;
+    text-align: left;
+    border:1px solid #cccccc;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    padding-left: 5px;
+    height: 150px;
+    padding-top: 10px;
+    font-family: 'Open Sans Regular', sans-serif;
+    font-size: 10pt;
+    resize: none;
+}
+
+
+#form-msg{
+    position: fixed; top:100px; right: 20px; width: 300px; height: 300px;
+}
+
+#form-msg p{
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+#form-msg p.correct-insert{
+    color: green!important;
+}
+
+#form-msg p.wrong-insert{
+    color: red!important;
+}
+
+.bottom-bar-fixed-bottom{
+    position: fixed;
+    background: white;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+
+}
+.bottom-bar{
+    position: fixed;
+    background: white;
+    bottom: 0;
+    width: 100%;
+    left:50%;
+    margin-left: -300px;
+}
+
+.bottom-bar .btn{
+    width: 150px;
+    height: 100px;
+    background: white;
+    float: left;
+    text-align: center;
+    color: rgba(3,169,269,1);
+    cursor: pointer;
+    -webkit-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+
+.bottom-bar .btn i.fa{
+    font-size: 30pt;
+    margin-top: 20px;
+}
+
+.bottom-bar .btn{
+    display: none;
+}
+
+.bottom-bar .btn:first-child{
+    display: block;
+}
+
+
+.bottom-bar .btn p{
+    font-size: 9pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 15px;
+    margin-top: 5px;
+}
+.bottom-bar .btn:hover{
+    background: rgba(3,169,269,1);
+    color: white;
+    -webkit-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+
+/*FINE NUOVO CSS*/
+
+.hidden{
+    display: none;
+}
+
+.noMarginTop{margin-top: 0!important;}
+.row-label.whiteBg{background: white;}
+.row-label.whiteBg p{color: black; font-weight: normal}
+
+.borderBottom {
+    border-bottom: 1px solid #91BE3F;
+    padding-bottom: 25px;
+}
+
+.paddingTop100px{
+    padding-top: 100px;
+}
+
+.marginTop10{
+    margin-top: 10px;
+}
+.marginTop20 {
+    margin-top: 20px;
+}
+
+.marginTop50 {
+    margin-top: 50px;
+}
+
+.marginTop100 {
+    margin-top: 100px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+a, a:hover {
+    color: black;
+    text-decoration: none;
+    outline: 0 none;
+}
+
+
+/*
+.loginBar{
+    background: #91BE3F; height: 50px; width: 100%; position: relative;
+}
+
+
+.loginBar form#login{
+    width: 400px;
+    margin: auto;
+    position: absolute;
+    right: 28px;
+    margin-top:-10px;
+}
+.loginBar form#login input{
+    padding-left: 10px;
+    margin-left: 2px;
+    margin-right: 5px;
+}
+.loginBar form#login input[type=text],
+.loginBar form#login input[type=password]{
+    height: 30px;
+    /*border-radius: 5px;*/
+   /* border:none;
+    border-bottom: 1px solid white;
+    float: left;
+    width: 150px;
+    background: #91BE3F;
+    color: white;
+
+}
+
+
+
+
+.loginBar form#login input[type=submit]{
+    width: 60px;
+    margin-top: -22px;
+    height: 33px;
+    margin-left: 3px;
+    position: absolute;
+    background: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border:none;
+    cursor: pointer;
+    -webkit-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.loginBar form#login input[type=submit]:hover{
+    color: #666666;
+    -webkit-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.loginBar form#login #user-label,
+.loginBar form#login #password-label{
+    display: none;
+}*/
+/*
+#button-home {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: 500px;
+    left: 0;
+    margin-top: -25px;
+    text-align: center;
+
+}
+
+#button-home button {
+    border: 2px solid #91BE3F;
+    background: #91BE3F;
+    border-radius: 5px;
+    height: 50px;
+    text-transform: uppercase;
+    color: white;
+    font-size: 15pt;
+    -webkit-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#button-home button:hover {
+    -webkit-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    background: none;
+    border: 2px solid #91BE3F;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+*/
+header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: auto;
+    z-index: 9999;
+}
+
+header img {
+    position: absolute;
+    top: 18px;
+    z-index: 1;
+}
+
+.slider {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 650px;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: -1;
+}
+
+.sliderBg {
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-size: cover;
+    background: no-repeat center;
+    height: 650px;
+}
+
+nav {
+    width: 100%;
+    height: 50px;
+    margin: auto;
+    z-index: 1;
+    position: fixed;
+    background:#039be5;
+    top:0;
+}
+
+nav > ul {
+    text-transform: uppercase;
+    float: right;
+    margin-right: 20px;
+    margin-top: 14px;
+
+}
+
+nav > ul > li {
+    list-style: none;
+    display: inline;
+    font-size: 12pt;
+    font-weight: lighter;
+    z-index: 2;
+
+}
+
+nav > ul > li > a {
+    -webkit-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    /*border-radius: 5px;*/
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: white;
+    z-index: 2;
+    font-weight: 700;
+
+}
+
+nav > ul > li > a:hover {
+    color: white;
+}
+
+nav > ul  > li > a.active{
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+}
+
+nav > ul > li > a.login{
+    color: white;
+}
+
+nav > ul > li > a.login:hover{
+    background: none;
+    border: none;
+    color: #039be5;
+}
+
+nav > ul > li > a.login i.fa{
+    margin-right: 10px;
+}
+
+.title {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    top: 50%;
+    margin-top: -200px;
+}
+
+.title h2 {
+    font-size: 40pt;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: white;
+}
+
+
+#menu-content {
+    position: absolute;
+    /*top: 65px;*/
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#menu-content span {
+    color: #91BE3F;
+    text-transform: uppercase;
+    font-size: 25pt;
+    margin-top: 15px
+}
+
+#menu-content p {
+    color: #666666;
+    text-transform: none;
+    font-size: 15pt;
+    margin-top: 15px;
+}
+
+#menu-content h3 {
+    font-size: 39pt;
+    color: #91BE3F;
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+#menu-content h3:first-letter {
+    text-transform: uppercase;
+}
+
+#menu-content a {
+    -webkit-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+#menu-content a:hover {
+    color: #91BE3F;
+}
+
+#menu-content button {
+    margin-top: 10px;
+    text-transform: uppercase;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #91BE3F;
+    background-color: white;
+    text-align: center;
+    color: #666666;
+    -webkit-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    font-family: 'Open Sans Condensed';
+    font-weight: bold;
+    font-size: 11pt;
+    cursor: pointer;
+}
+
+#menu-content button:hover {
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: #91BE3F;
+    text-align: center;
+    color: white;
+
+}
+
+.leftCol {
+    width: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.leftCol > .row {
+    width: 80%;
+    padding: 25px 0;
+    height: 65px;
+    margin: auto;
+    border: solid
+}
+
+.rightCol {
+    width: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.rightCol > .row {
+    width: 80%;
+    padding: 25px 0;
+    height: 65px;
+    margin: auto
+}
+
+.leftFloatElement {
+    float: left
+}
+
+.rightFloatElement {
+    float: right
+}
+
+.circle {
+    border-radius: 50px;
+    background-color: #91BE3F;
+    color: #ffffff;
+    font-size: 20pt;
+    width: 150px;
+    height: 150px;
+    margin-left: 35px;
+}
+
+
+.rightCol span {
+    border-radius: 50px;
+    background-color: #91BE3F;
+    color: #ffffff;
+    font-size: 20pt;
+    padding: 10px 20px;
+}
+
+#chisiamo .col-4 {
+    width: 32%;
+    display: inline-block;
+}
+
+#chisiamo .col-8 {
+    width: 64%;
+    display: inline-block;
+}
+
+#chisiamo .col-8 p {
+    text-align: justify;
+    line-height: 20px;
+}
+
+
+#chisiamo > .row {
+    text-align: center;
+}
+
+#chisiamo p {
+    font-size: 15pt;
+    color: #000000;
+    text-align: justify;
+    /*border: solid;*/
+}
+
+#chisiamo h2 {
+    font-size: 25pt;
+    color: #91BE3F;
+    text-align: center;
+}
+
+#contatti .test {
+    width: 100%;
+    position: absolute;
+    height: 350px;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    background-color: #03A9F4;
+    font-size: 10pt;
+    color: white;
+}
+
+footer .row{
+    width: 90%;
+    margin: 20px auto auto auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+footer i.fa{
+    margin-right: 10px;
+    width: 20px;
+}
+
+footer i.fa-mobile{
+    font-size: 22pt;
+    margin-right: 8px;
+}
+
+footer a{
+    color: white;
+    font-size: 13pt;
+    transition: all 0.2s ease-in-out;
+}
+
+footer a:hover{
+    color: white;
+    font-size: 14pt;
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+
+/*UTENTE LAYOUT*/
+.topBarLogin{
+    width: 100%;
+    height:50px;
+    background: #03A9F4;
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 7;
+}
+
+.login{
+    position: absolute;
+    top:0; left:0;
+    padding:0px 15px; margin-top: 2px;
+}
+
+.login p, .logout p{
+    font-family: 'Open Sans Regular', sans-serif;
+    font-size: 8pt;
+}
+
+.login span{color:white; line-height: 25px}
+
+.logout{
+    position: absolute;
+    top:0; right:0;
+    /*padding:4px 7px; */
+    height: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
+    color: white;
+}
+
+.logout p{
+    line-height: 25px;
+    cursor: pointer;
+}
+
+.rightBar{
+    position: fixed;
+    width:200px;
+    height:100%; left:0; top:60px;
+    font-family: 'Open Sans Regular', sans-serif; font-size: 10pt;
+}
+
+
+ul.sideMenu{
+    list-style: none;
+    padding-left: 0;
+    width: 150px;
+    text-transform: uppercase;
+}
+
+ul.sideMenu > li{
+    height: 30px;
+}
+ul.sideMenu > li > a{
+    border-left: 3px solid rgba(3,169,244, 1);
+    padding-left: 10px;
+    padding-top:10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    font-size: 8pt;
+    font-family: 'Open Sans Regular', sans-serif;
+    color:rgba(3,169,244, 1);
+    margin-bottom: 10px;
+
+}
+
+ul.sideMenu > li > a:hover{
+    border-left: 3px solid rgba(3,169,244, 1);
+    color:rgba(3,169,244, 1);
+}
+
+ul.sideMenu > li > a.active{
+    color:rgba(3,169,244, 1);
+    border-left: 3px solid rgba(3,169,244, 1);
+}
+
+.backHome{position: fixed; bottom: 0; left:0;}
+
+
+.items{
+    width: 100%;
+    margin: auto;
+    padding-right: 10px;
+    overflow: auto;
+}
+
+.box-item{
+    width: 100%;
+    height: 50px;
+    float: left;
+    border: 1px solid #cccccc;
+    margin:2px;
+}
+
+.box-item .thumb,
+.box-item .product-name,
+.box-item .product-desc{
+    float:left;
+    width: 33%;
+}
+
+.box-item .thumb img{
+    margin-top: 10px;
+}
+
+.box-item:hover{
+    background: #cccccc;
+}
+
+
+.box-item .product-name,
+.box-item .product-desc
+{
+    font-size: 12pt;
+}
+.box-item .product-name span,
+.box-item .product-desc span{
+    font-weight: bold;
+}
+
+
+/*AREA RISERVATA LIVELLO 1*/
+.product-detail{width: 600px; margin: auto; position: relative; padding-bottom: 50px}
+.product-detail-top{width: 200px; height: 400px;}
+.product-detail-img{position: relative; top: 20px;}
+.product-label{
+    position: relative;
+    top: 10px;
+    width: 100%;
+    height: 25px;background: rgba(3,169,244,0.8);
+    margin-top: 30px;
+    padding-left: 10px;
+    color: white;
+    line-height: 24px;
+}
+
+.product-label span{color: black}
+
+.product-detail-left h2{
+    font-size: 12pt;
+    text-transform: uppercase;
+    display: block;
+    border-bottom: 1px solid rgba(3,169,244,0.8);
+    color: rgba(3,169,244,0.8);
+}
+
+ul.component-list{
+    list-style: none;
+    padding-left: 0;
+    width: 805px;
+    margin: auto;
+    font-family: 'Open Sans Regular', sans-serif;
+    font-size: 10pt;
+
+}
+ul.component-list > li > a {
+    display: block;
+    width: 795px;
+    margin: auto;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+ul.component-list > li > a:first-letter{
+    text-transform: uppercase;
+}
+ul.component-list > li > a:hover{
+    background: rgba(3,169,244,0.8);
+    color: white;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+
+}
+
+.empty-list{
+    width: 100%; height: 250px;
+}
+
+.empty-list p{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 12pt;
+    color: rgba(3,169,244,1);
+    font-weight: bold;
+}
+
+.backHome a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: rgba(3,169,244,1);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 15px;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+.backHome a:hover{
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    background: rgba(3,169,244,1);
+    color: white;
+}
+
+
+.popup-bg{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(3,169,244,0.85);
+    top:50px;
+    left:0;
+    z-index:90;
+}
+
+.popup-bg .popup{
+    width: 500px; height: 500px;
+    background: white;
+    border-radius: 4px;
+    position: absolute; left:50%; top:50%; margin-left: -250px; margin-top: -250px;
+}
+
+.popup i.fa.ajax{
+    position: absolute;
+    top:10px;
+    right: 10px;
+    cursor: pointer;
+    color: black;
+    font-size: 11pt;
+}
+
+.popup .product-box{
+    margin: auto;
+    width: 450px;
+    height: 450px;
+    margin-top: 35px;
+}
+
+.popup .product-component p{
+    font-size: 9pt;
+    text-transform: uppercase;
+    display: block;
+}
+
+.popup .product-component span{
+    text-transform: uppercase;
+    font-size: 8pt;
+    font-weight: bold;
+    background: rgba(3,169,244,1);
+    display: block;
+    color: white;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.popup .product-component span.space{
+    color: black;
+    background: white;
+    font-weight: lighter;
+    font-family: 'Open Sans Regular', sans-serif;
+    font-size: 7pt;
+    line-height: 15px;
+}
+
+.popup .product-component.solution-text p{
+    font-family: 'Open Sans Regular', sans-serif;
+    font-size: 7pt;
+    line-height: 15px;
+    padding: 10px;
+}
+
+
+.search, .menu, .home{
+    position: absolute;
+    color: white;
+    left: 100px;
+    height: 50px;
+    width: 50px;
+    top:0;
+    cursor: pointer;
+    border-right: 1px solid white;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+.settings{
+    position: fixed;
+    color: white;
+    right: 120px;
+    height: 50px;
+    width: 50px;
+    top:0;
+    cursor: pointer;
+    border-left: 1px solid white;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    z-index: 7;
+
+
+}
+
+.settings i.fa-cogs{
+    color: white!important;
+    position: absolute;
+    font-size: 12pt;
+    left:50%; top:50%;
+    margin-left: -10px;
+    margin-top: -8px;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    font-size: 12pt;
+}
+
+.settings:hover{
+    background: white;
+}
+
+.settings:hover > a i.fa{
+    color: rgba(3,169,244,1)!important;
+}
+
+.menu{left:150px}
+.home{left: 0; width: 100px}
+.home i.fa-home{margin-left: -7px}
+.home a,
+.settings a,
+.user .user-sub-item a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: white;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+
+}
+
+.home:hover > a{
+    color: rgba(3,169,244,1);
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+.search:hover, .menu:hover, .home:hover, .user:hover {
+    background: white;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+.search:hover > i.fa-search,
+.menu:hover > i.fa-bars,
+.user:hover > i.fa-user,
+.user:hover > p{
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    color: rgba(3,169,244,1);
+}
+
+
+
+.search i.fa-search, .menu i.fa-bars, i.fa-home{
+    position: absolute;
+    font-size: 12pt;
+    left:50%; top:50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+.menu i.fa-bars{margin-left: -7px}
+.popup-bg i.fa-times{
+    position: absolute;
+    font-size: 15pt;
+    color: white;
+    right: 30px;
+    top: 70px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.popup-bg h2{
+    display: block;
+    width: 90%;
+    height: auto;
+    position: relative;
+    margin: auto;
+    margin-top: 60px;
+    color: white;
+    text-align: center;
+}
+
+
+
+/*FORM RICERCA UTENTE*/
+form#formRicerca{
+    width: 600px;
+    margin: auto;
+}
+
+form#formRicerca input[type=text]{
+    width: 100%;
+    height: 50px;
+    /*border-radius: 4px;*/
+    border:none;
+    border-bottom:5px solid white;
+    background: none;
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+form#formRicerca input[placeholder]{
+    font-size: 13pt;
+    padding-left: 10px;
+    color: white;
+    text-align: center;
+}
+
+form#formRicerca input[type=submit]{
+    width: 250px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 3px;
+    background: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 13pt;
+    color: white;
+    font-weight: bold;
+    margin: 50px auto;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+form#formRicerca input[type=submit]:hover{
+    color: rgba(3,169,244,1);
+    background: white;
+    -webkit-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+form#formRicerca .button{
+    width: 250px;
+    margin: auto;
+}
+
+
+.anchor-link-item{display: block; height: 100%; width: 100%; position: absolute; z-index: 2}
+.catalog-list{position: relative; margin-top: 5px; margin-bottom: 15px; border-bottom: 1px solid #cccccc}
+.catalog {padding-top:30px; position:relative;width: 600px; height:auto; margin: auto;}
+.catalog-item.img{
+    position: relative; height: 100px; width: 150px;
+}
+
+.catalog-item.img img{
+    width: 150px;
+}
+.catalog-item.modello,
+.catalog-item.desc{
+    position: absolute; height: 100px; width: 400px; top:-16px; left:155px
+}
+
+.catalog-item.desc{
+    top:35px
+}
+.catalog-item.modello span,
+.catalog-item.modello span.modello,
+.catalog-item.desc span,
+.catalog-item.desc span.desc{
+    display: block;
+    width: 100%;
+    background: rgba(3,169,244,1);
+    padding-left: 10px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    color:white;
+}
+
+.catalog-item.modello span.modello,
+.catalog-item.desc span.desc{
+    font-weight: lighter;
+    background: white;
+    color:rgba(3,169,244,1);
+}
+
+
+/*GRID PRODUCT*/
+.tab{position:relative; width: 804px; height: 50px; margin:15px auto auto auto; border: 1px solid rgba(3,169,244,1); border-top-left-radius:4px;border-top-right-radius:4px; }
+.noRound{border-radius: 0; margin:auto; border-top: none}
+a.tab{
+    display: block;
+    -webkit-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+a.tab.active{
+    background: rgba(3,169,244,0.3);
+}
+
+a.tab:hover{
+    background: rgba(3,169,244,0.3);
+    -webkit-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+a.tab:hover .tab-element{
+    -webkit-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+
+.rightBorder{border-right: 1px solid rgba(3,169,244,1)}
+.leftBorder{border-left: 1px solid rgba(3,169,244,1)}
+.tab-element{font-family: 'Open Sans Regular', sans-serif; font-size: 9pt; color: black; line-height: 50px}
+.title-page h2{display: block; text-transform: uppercase; text-align: center; color: rgba(3,169,244,1)}
+.title-page h3.error{display: block; text-transform: uppercase; text-align: center; color: red}
+.title-page p{display: block; text-align: center; color: black; font-size: 9pt; font-weight: normal; font-family: 'Open Sans Regular', sans-serif}
+.title-page span{color:  rgba(3,169,244,1); font-weight: bold}
+.row-label{
+    /*background: rgba(3,169,244,1);*/
+    width: 806px;
+    margin: 50px auto 20px auto;
+}
+.row-label p{
+    color: rgba(3,169,244,1);
+    font-family: 'Open Sans Regular', sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.control-bar a {
+    font-family: 'Open Sans Regular', sans-serif;
+    font-size: 10pt;
+    color: rgba(3, 169, 244, 1);
+}
+
+
+
+
+
+
+/*LIVELLO ZERO NUOVO LAYOUT 31 Gennaio 2016*/
+
+

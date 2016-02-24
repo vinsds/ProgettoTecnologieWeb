@@ -1,0 +1,123 @@
+<? $role = Zend_Auth::getInstance()->getIdentity()->role; ?>
+<? if($role=='tecnico' || $role=='admin') $class="";?>
+<? if($role=='staff' || $role=='admin') $class="prodotto";?>
+<div class="title-page">
+        <h2><?= $this->msg; ?></h2>
+        <p>Prodotto selezionato: <span><?= $this->item['nome']; ?></span></p>
+    </div>
+
+    <div class="tab">
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Immagine</div>
+        <div class="tab-element" style="width: 400px; float: left; height: 50px; text-align: center">Nome</div>
+<!--        <div class="tab-element" style="width: 200px; float: left; height: 50px; text-align: center">Descrizione</div>-->
+    </div>
+    <a href="#" class="tab noRound">
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+            <?= $this->item['id_prodotto']; ?>
+        </div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+            <img src="<?= $this->baseUrl();?>/import/<?= $this->item['img_path'];?>" height="30" class="marginTop10" />
+        </div>
+        <div class="tab-element" style="width: 400px; float: left; height: 50px; text-align: center">
+            <?= $this->item['nome']; ?>
+        </div>
+<!--        <div class="tab-element " style="width: 200px; float: left; height: 50px; text-align: center">-->
+<!--            --><?//= $this->item['desc_prod']; ?>
+<!--        </div>-->
+    </a>
+
+    <div class="row-label">
+        <p>Descrizione</p>
+        <p class="txt-black"><?= $this->item['desc_prod']; ?></p>
+    </div>
+
+    <div class="row-label">
+        <p>Istruzioni</p>
+        <p class="txt-black"><?= $this->item['istruzioni']; ?></p>
+    </div>
+
+    <div class="row-label">
+        <p>Note</p>
+        <p class="txt-black"><?= $this->item['note']; ?></p>
+    </div>
+
+    <div class="row-label">
+        <p>Componenti</p>
+    </div>
+
+    <div class="tab noMarginTop">
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Nome</div>
+        <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">Esplora</div>
+    </div>
+        <? if(count($this->componenti)>0): ?>
+            <? foreach($this->componenti as $comp): ?>
+            <a href="<?= $this->url(array(
+                "controller" => "catalogo",
+                "action" 	=>  "componentdetail",
+                "id" => $comp['id_componente']
+            ),
+                "default", true)?>" class="tab noRound">
+                <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                    <?= $comp['id_componente']; ?>
+                </div>
+                <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                    <?= $comp['nome']; ?>
+                </div>
+                <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">
+                    <i class="fa fa-eye"></i>
+                </div>
+            </a>
+            <? endforeach; ?>
+        <? endif; ?>
+    <div class="row-label">
+        <p>Malfunzionamenti prodotto</p>
+    </div>
+
+    <div class="tab noMarginTop">
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Nome</div>
+        <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">Piu informazioni</div>
+    </div>
+    <? if(count($this->malf_prod)>0): ?>
+        <? foreach ($this->malf_prod as $k): ?>
+            <a href="#" class="tab noRound ajaxmalf <?= $class;?>" value="<?= $k['id_malfunzionamento']; ?>">
+                <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                    <?= $k['id_malfunzionamento']; ?>
+                </div>
+                <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                    <?= $k['nome']; ?>
+                </div>
+                <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">
+                    <i class="fa fa-info"></i>
+                </div>
+            </a>
+        <? endforeach; ?>
+    <? endif; ?>
+
+
+    <div id="modal-change-box">
+        <i class="fa fa-times"></i>
+        <div id="modal-change-box-content">
+            <? if($role=='tecnico'): ?>
+                <h2>Soluzioni disponibili</h2>
+            <? elseif($role=='staff' || $role=='admin'): ?>
+                <h2>Modifica associazione malfunzionamento-soluzione</h2>
+            <? endif ?>
+            <h3>Seleziona il nome della soluzione per accedere alla sua descrizione</h3>
+            <p>Malfunzionamento selezionato: <span>test</span></p>
+            <p>Descrizione malfunzionamento selezionato: <span class="desc-malf"></span></p>
+            <h2>Soluzioni</h2>
+            <div class="solutions-list no-selection">
+            </div>
+            <? if($role=='staff' || $role=='admin'): ?>
+                <p class="correct-insert"></p>
+                <p class="wrong-insert"></p>
+            <? endif ?>
+        </div>
+        <div id="modal-change-box-description">
+            <h2>Descrizione soluzione</h2>
+            <p></p>
+        </div>
+    </div>

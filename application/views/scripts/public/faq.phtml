@@ -1,0 +1,22 @@
+<div class="fullscreen-img height500" style="background-image: url('<?= $this->baseUrl('/img/slider/005.jpg');?>')">
+</div>
+<section class="page">
+    <h2>F.A.Q</h2>
+    <h3>Domande frequenti</h3>
+    <? if($this->list!=null):?>
+        <?php foreach ($this->list as $faq) : ?>
+            <div class="box-collapse">
+                <div class="faq-title">
+                    <h4><?php echo $faq['domanda']; ?></h4>
+                </div>
+                <div class="faq-description txt-desc">
+                    <p><?php echo $faq['risposta']; ?></p>
+                </div>
+            </div>
+        <?php endforeach; ?>
+
+    <? else: ?>
+        <h2>Non sono presenti F.A.Q. nel database</h2>
+    <? endif ?>
+</section>
+

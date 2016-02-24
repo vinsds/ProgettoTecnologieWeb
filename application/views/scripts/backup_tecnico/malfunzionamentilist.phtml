@@ -1,0 +1,44 @@
+    <? $role=Zend_Auth::getInstance() -> getIdentity()->role; ?>
+
+    <div class="title-page">
+        <h2><?= $this->msg; ?></h2>
+    </div>
+
+    <div class="tab">
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Nome</div>
+        <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">Leggi soluzione</div>
+    </div>
+
+    <? if(count($this->malf) > 0): ?>
+        <? foreach($this->malf as $item): ?>
+            <a href="#" class="tab noRound ajaxmalf" value="<?= $item['id_malfunzionamento']; ?>">
+                <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                    <?= $item['id_malfunzionamento']; ?>
+                </div>
+                <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                    <?= $item['nome']; ?>
+                </div>
+                <div class="tab-element " style="width: 400px; float: left; height: 50px; text-align: center">
+                    <i class="fa fa-search"></i> Soluzione
+                </div>
+            </a>
+        <? endforeach; ?>
+    <? endif; ?>
+    <div id="modal-box">
+        <div id="modal-content">
+            <div id="modal-bar">
+                <i class="fa fa-times"></i>
+            </div>
+            <div class="row">
+                <div class="modal-content-txt malfunzionamento">
+                    <p><span>Nome malfunzionamento:</span><span class="space name">test</span></p>
+                    <p><span>Descrizione malfunzionamento:</span><span class="space desc">test</span></p>
+                    <p><span>Soluzione: </span></p>
+                    <div class="solution-text">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

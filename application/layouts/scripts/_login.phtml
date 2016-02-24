@@ -1,0 +1,31 @@
+<div class="loginBar">
+    <?php echo $this->login; ?>
+</div>
+
+
+
+<script>
+    var user;
+    var password;
+
+    $("form#login input[type=submit]").click(function(e){
+        e.preventDefault();
+        user=$("form#login input[name=user]").val();
+        password=$("form#login input[name=password]").val();
+        call(user,password);
+    });
+
+    function call(user,password) {
+        $.ajax({
+            type: 'POST',
+            url: '<?= $this->baseUrl('/login/access') ?>',
+            data: { "user": user, "password": password },
+            dataType:'json',
+            success: function(data){
+                console.log(data);
+//                window.location.href = data.hasOwnProperty('redirect') ? data.redirect : window.location.href;
+            }
+        });
+    }
+
+</script>

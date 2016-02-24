@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <?= $this->headScript(); ?>
+        <?= $this->headLink(); ?>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    </head>
+        <body>
+            <!--Inizio HEADER-->
+            <header>
+
+                <nav>
+                    <div style="width: 150px; height: 40px; position: absolute; left:50px; top:-14px">
+                        <img src="<?= $this->baseUrl("/img/logo.png");?>"  width="83" height="50"/>
+                    </div>
+                    <?= $this->render("_menu.phtml"); ?>
+                </nav>
+            </header>
+
+            <!--Inizio mainContent-->
+            <div id="mainContent">
+                <?= $this->layout()->content; ?>
+            </div>
+
+            <!--Stesura FOOTER-->
+            <footer>
+                <div class="row"><?= $this->render("_footer.phtml"); ?></div>
+            </footer>
+        </body>
+
+</html>
+
+<script>
+    //Definisco delle variabili globali utili per le chiamate ajax o altre operazioni
+
+    //Messaggi
+    var noElements="Non sono presenti elementi";
+    var modalLabel=["Modello","Descrizione","istruzioni d'uso"];
+    var filtraCategoria="Filtra per sottocategoria";
+    var errorResearch=[
+        "Impossibile effettuare la ricerca.<br/>Carattere * non ammesso all'inizio della parola",
+    "Impossibile effettuare la ricerca.<br/>Carattere * non ammesso in mezzo alla parola",
+        "Non ci sono prodotti per la parola ricercata",
+    "Non sono accettati caratteri speciali al di fuori del simbolo asterisco(*)"];
+
+
+    /**
+     *
+     * @type {string} contiene il baseUrl generato da Zend
+     */
+    const baseUrl="<?= $this->baseUrl(); ?>";
+
+    /**
+     *
+     * @type {string} contiene il baseUrl per le immagini
+     */
+    const baseUrlImg="<?= $this->baseUrl('/import/'); ?>";
+
+    /**
+     * @type {int} contiene l'id per le chiamate ajax
+     */
+    var id_ajax;
+
+    /**
+     * @type {string} contiene l'action da assegnare alla chiamata ajax
+     */
+    var action_ajax;
+    /**
+     * @type {string} contiene la parola di ricerca per le chiamate ajax
+     */
+    var txt_word_search_ajax;
+
+    /**
+     * @type {string} contiene la definizione della finestra modal
+     */
+    var modal_ajax='<div id="modal-content">' +
+        '<div id="modal-bar">' +
+        '<i class="fa fa-times"></i>' +
+        '</div>' +
+        '<div style=""></div>' +
+        '<div class="row">' +
+        '<div class="modal-img" style=""></div>' +
+        '<div class="modal-content-txt">' +
+        '<p class="label">'+modalLabel[0]+'</p>' +
+        '<p class="field modello"></p>' +
+        '<p class="label">'+modalLabel[1]+'</p>' +
+        '<p class="field descrizione"></p>' +
+        '</div>' +
+        '</div>' +
+        '<div class="row">' +
+        '<p class="label istruzioni">'+modalLabel[2]+'</p>' +
+        '<p class="istruzioni-full"></p></div></div>';
+
+    var alert_ajax='<div id="modal-alert"></div>';
+</script>

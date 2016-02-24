@@ -1,0 +1,16 @@
+<div class="title-page">
+    <h2><?= $this->msg; ?></h2>
+    <? if($this->msgerror): ?>
+        <h3 class="error"><?= $this->msgerror ?></h3>
+    <? endif; ?>
+    <? if($this->correct): ?>
+        <h2><?= $this->correct ?></h2>
+    <? endif; ?>
+
+</div>
+<?= $this->editprofile; ?>
+
+<div id="form-msg">
+    <p class="correct-insert"></p>
+    <p class="wrong-insert"></p>
+</div>

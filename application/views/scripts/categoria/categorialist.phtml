@@ -1,0 +1,32 @@
+<div class="title-page">
+    <h2><?= $this->msg;?></h2>
+    <? if($this->empty!=null): ?>
+        <h2><?= $this->empty;?></h2>
+    <? endif; ?>
+</div>
+
+<div style="width: 800px; margin: auto">
+    <div class="tab topRow">
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Id</div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Nome</div>
+        <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">Modifica</div>
+        <div class="tab-element " style="width: 200px; float: left; height: 50px; text-align: center">Elimina</div>
+
+    </div>
+    <? foreach($this->list as $item): ?>
+        <a href="#" class="tab noRound admin-cat" value="<?= $item['id_categoria']; ?>">
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['id_categoria']; ?>
+            </div>
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <?= $item['nome']; ?>
+            </div>
+            <div class="tab-element rightBorder" style="width: 200px; float: left; height: 50px; text-align: center">
+                <i class="fa fa-pencil"></i>
+            </div>
+            <div class="tab-element " style="width: 200px; float: left; height: 50px; text-align: center">
+                <i class="fa fa-trash"></i>
+            </div>
+        </a>
+    <? endforeach; ?>
+</div>

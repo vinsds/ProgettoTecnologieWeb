@@ -1,0 +1,24 @@
+<div class="title-page">
+    <h2>Gestione:<br /> Associazione prodotto componente<br />Malfunzionamento Prodotto componente </h2>
+</div>
+<div id="admin-prod-comp">
+    <div class="title-page">
+        <div class="col">
+            <a href="<?php echo $this->url(array(
+                'controller' => 'admin',
+                'action' 	=>  'assprodcomp',
+            ),
+                'default', true);?>" class="">Crea associazione</a>
+        </div>
+    </div>
+
+    <div class="title-page">
+        <div class="col">
+            <a href="<?php echo $this->url(array(
+                'controller' => 'malfunzionamento',
+                'action' 	=>  'scegli',
+            ),
+                'default', true);?>" class="">Prodotto-Comp-Malf</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="title-page">
+    <h2><?= $this->msg_prod_comp; ?></h2>
+</div>
+<div id="admin-prod-comp">
+    <div class="col">
+        <a href="<?php echo $this->url(array(
+            'controller' => 'admin',
+            'action' 	=>  'product',
+        ),
+            'default', true);?>" class="">Nuovo prodotto</a>
+        <a href="<?php echo $this->url(array(
+            'controller' => 'admin',
+            'action' 	=>  'choosemodifica',
+        ),
+            'default', true);?>" class="">Modifica - Elimina prodotto</a>
+    </div>
+    <div class="col">
+        <a href="<?php echo $this->url(array(
+            'controller' => 'admin',
+            'action' 	=>  'component',
+        ),
+            'default', true);?>" class="">Nuova Componente</a>
+        <a href="<?php echo $this->url(array(
+            'controller' => 'admin',
+            'action' 	=>  'choosemodificacomponente',
+        ),
+            'default', true);?>">Modifica - Elimina Componente</a>
+    </div>
+</div>
+
+
+
+
+
